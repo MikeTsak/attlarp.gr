@@ -61,14 +61,13 @@
         }
 
         /* --- ENDLESS ROLLING ANIMATION --- */
-        /* Moves from 0 to -50%. JS ensures the content at 0% and 50% matches perfectly */
         @keyframes rollBackground {
             0% { transform: translateY(0); }
             100% { transform: translateY(-50%); }
         }
 
         /* Wrapper that holds the angled content */
-        /* Increased size to 300% to handle rotation on 4K/Ultrawide screens without gaps */
+        /* Size increased to 300% to ensure coverage on large/wide screens */
         .bg-wrapper {
             position: fixed;
             top: -100%;
@@ -89,13 +88,13 @@
             align-content: flex-start;
             gap: 15px; /* Spacing between images */
             width: 100%;
-            /* 120s ensures a slow, majestic roll. Linear ensures no stopping. */
-            animation: rollBackground 120s linear infinite; 
-            will-change: transform; /* Performance hint for browsers */
+            /* 240s ensures a slow, majestic roll for this amount of content */
+            animation: rollBackground 240s linear infinite; 
+            will-change: transform;
         }
 
         .bg-container img {
-            width: 350px; /* Slightly larger for better resolution */
+            width: 350px; 
             height: 230px;
             object-fit: cover;
             filter: grayscale(30%) contrast(1.15); 
@@ -215,6 +214,7 @@
             text-transform: uppercase;
             backdrop-filter: blur(4px);
             box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+            max-width: 90%;
         }
         .btn i { margin-right: 10px; font-size: 1.2rem; }
         .btn:hover { 
@@ -300,30 +300,72 @@
     </footer>
 
     <script>
+        // FULL LIST OF 63 IMAGES
         const imageFiles = [
             "Athens through time (1).jpg",
             "Athens through time (129).jpg",
+            "Athens through time (147).jpg",
+            "Athens through time (169).jpg",
+            "Athens through time (182).jpg",
+            "Athens through time (184).jpg",
+            "Athens through time (196).jpg",
             "Athens through time (2).jpg",
+            "Athens through time (205).jpg",
             "Athens through time (23).jpg",
+            "Athens through time (242).jpg",
+            "Athens through time (247).jpg",
+            "Athens through time (3).jpg",
             "Athens through time (4).jpg",
+            "Athens through time (41).jpg",
+            "Athens through time (76).jpg",
             "Athens through time (9).jpg",
             "Athens through time (94).jpg",
             "Athens through time (99).jpg",
             "Athens through time 2-1.jpg",
+            "Athens through time 2-121.jpg",
             "Athens through time 2-13.jpg",
+            "Athens through time 2-167.jpg",
             "Athens through time 2-170.jpg",
+            "Athens through time 2-173.jpg",
             "Athens through time 2-20.jpg",
             "Athens through time 2-207.jpg",
             "Athens through time 2-21.jpg",
+            "Athens through time 2-254.jpg",
+            "Athens through time 2-259.jpg",
+            "Athens through time 2-270.jpg",
+            "Athens through time 2-3.jpg",
             "Athens through time 2-33.jpg",
+            "Athens through time 2-4.jpg",
+            "Athens through time 2-5.jpg",
+            "Athens through time 2-6.jpg",
+            "Athens through time 2-7.jpg",
+            "Athens through time 2-8.jpg",
+            "Athens through time 3 (161).jpg",
+            "Athens through time 3 (162).jpg",
+            "Athens through time 3 (164).jpg",
             "Athens through time 3 (166).jpg",
+            "Athens through time 3 (168).jpg",
+            "Athens through time 3 (173).jpg",
+            "Athens through time 3 (175).jpg",
+            "Athens through time 3 (177).jpg",
+            "Athens through time 3 (186).jpg",
+            "Athens through time 3 (19).jpg",
+            "Athens through time 3 (2).jpg",
+            "Athens through time 3 (216).jpg",
+            "Athens through time 3 (23).jpg",
             "Athens through time 3 (242).jpg",
+            "Athens through time 3 (243).jpg",
             "Athens through time 3 (266).jpg",
+            "Athens through time 3 (268).jpg",
+            "Athens through time 3 (269).jpg",
             "Athens through time 3 (278).jpg",
+            "Athens through time 3 (282).jpg",
             "Athens through time 3 (307).jpg",
             "Athens through time 3 (316).jpg",
             "Athens through time 3 (39).jpg",
-            "Athens through time 3 (45).jpg"
+            "Athens through time 3 (4).jpg",
+            "Athens through time 3 (45).jpg",
+            "Athens through time 3 (9).jpg"
         ];
 
         function shuffleArray(array) {
@@ -336,25 +378,25 @@
         const bgContainer = document.getElementById('bg-collage');
 
         if (imageFiles.length > 0) {
+            // 1. Randomize the unique images first
             shuffleArray(imageFiles);
 
-            // 1. Create a massive list (e.g., repeat the original list 12 times)
-            // This ensures we have enough images for 4K screens and huge areas.
-            let bigList = [];
-            for(let i=0; i<12; i++) {
-                bigList = bigList.concat(imageFiles);
-            }
+            // 2. Create "Base Block":
+            // We need enough images to cover the 300% width/height canvas.
+            // 63 images repeated 2 times = 126 images. This is enough density for 4K.
+            let baseBlock = [...imageFiles, ...imageFiles];
 
-            // 2. We need TWO identical sets of this big list to make the loop seamless.
-            // Set A + Set B.
-            // When Set A finishes scrolling, we snap back to the start.
-            const seamlessList = [...bigList, ...bigList];
+            // 3. Create "Infinite Loop":
+            // The CSS moves the container by 50%.
+            // We need 2 identical copies of the base block stacked.
+            // When copy 1 slides up, copy 2 takes its place instantly.
+            const seamlessList = [...baseBlock, ...baseBlock];
 
             seamlessList.forEach(filename => {
                 const img = document.createElement('img');
                 img.src = "img/" + filename; 
                 img.alt = "Atmosphere";
-                img.loading = "lazy"; // Optimization for performance
+                img.loading = "lazy"; // Optimization: don't load 200 images at once
                 img.onerror = function() { this.style.display = 'none'; };
                 bgContainer.appendChild(img);
             });
