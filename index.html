@@ -54,28 +54,31 @@
             min-height: 100vh;
             display: flex;
             flex-direction: column;
+            /* Allow vertical scrolling so buttons aren't cut off on mobile */
             overflow-y: auto; 
             overflow-x: hidden; 
             position: relative;
         }
 
-        /* --- ROLLING ANIMATION --- */
+        /* --- ENDLESS ROLLING ANIMATION --- */
+        /* Moves from 0 to -50%. JS ensures the content at 0% and 50% matches perfectly */
         @keyframes rollBackground {
             0% { transform: translateY(0); }
             100% { transform: translateY(-50%); }
         }
 
         /* Wrapper that holds the angled content */
+        /* Increased size to 300% to handle rotation on 4K/Ultrawide screens without gaps */
         .bg-wrapper {
             position: fixed;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 250%; 
+            top: -100%;
+            left: -100%;
+            width: 300%; 
+            height: 300%; 
             z-index: -2;
             transform: rotate(-15deg); 
             overflow: hidden;
-            pointer-events: none; /* Ensure clicks go through to content */
+            pointer-events: none;
         }
 
         /* The container that actually moves */
@@ -84,17 +87,19 @@
             flex-wrap: wrap;
             justify-content: center;
             align-content: flex-start;
-            gap: 10px;
+            gap: 15px; /* Spacing between images */
             width: 100%;
-            animation: rollBackground 80s linear infinite; 
+            /* 120s ensures a slow, majestic roll. Linear ensures no stopping. */
+            animation: rollBackground 120s linear infinite; 
+            will-change: transform; /* Performance hint for browsers */
         }
 
         .bg-container img {
-            width: 300px;
-            height: 200px;
+            width: 350px; /* Slightly larger for better resolution */
+            height: 230px;
             object-fit: cover;
-            filter: grayscale(30%) contrast(1.2); 
-            box-shadow: 0 0 10px rgba(0,0,0,0.8);
+            filter: grayscale(30%) contrast(1.15); 
+            box-shadow: 0 4px 15px rgba(0,0,0,0.9);
             border-radius: 4px;
             opacity: 0.9; 
             flex-shrink: 0;
@@ -105,16 +110,17 @@
             position: fixed;
             top: 0; left: 0;
             width: 100%; height: 100%;
-            background: radial-gradient(circle at center, rgba(0,0,0,0.4) 10%, rgba(0,0,0,0.95) 90%);
+            /* Gradient: Clearer in center to see images, dark edges */
+            background: radial-gradient(circle at center, rgba(0,0,0,0.5) 20%, rgba(0,0,0,0.98) 90%);
             z-index: -1;
             pointer-events: none;
         }
 
         /* --- CONTENT --- */
         .container {
-            max-width: 800px;
+            max-width: 900px;
             margin: auto;
-            padding: 2rem 1rem; /* Added padding for mobile edges */
+            padding: 2rem 1rem;
             flex: 1;
             display: flex;
             flex-direction: column;
@@ -128,16 +134,16 @@
         /* Rounded Corners for Logo */
         .main-logo {
             max-width: 300px; 
-            width: 100%;
+            width: 80%; /* Responsive width */
             height: auto;
-            margin-bottom: 1rem;
-            filter: drop-shadow(0 0 15px rgba(138, 3, 3, 0.6));
-            border-radius: 20px; /* Rounds the corners */
+            margin-bottom: 1.5rem;
+            filter: drop-shadow(0 0 20px rgba(138, 3, 3, 0.5));
+            border-radius: 20px; 
         }
 
         h1 {
             font-family: 'Cinzel', serif;
-            font-size: 3rem;
+            font-size: clamp(2rem, 5vw, 3.5rem); /* Dynamic font size */
             letter-spacing: 2px;
             color: var(--text-color);
             margin-bottom: 0.5rem;
@@ -148,7 +154,7 @@
 
         h2 {
             font-family: 'Cinzel', serif;
-            font-size: 1.2rem;
+            font-size: clamp(1rem, 3vw, 1.3rem); /* Dynamic font size */
             color: var(--blood-red);
             letter-spacing: 4px;
             margin-bottom: 2rem;
@@ -167,10 +173,10 @@
             color: #fff; 
             text-shadow: 0 2px 5px #000;
             max-width: 600px;
-            background: rgba(0,0,0,0.5); 
+            background: rgba(0,0,0,0.6); 
             padding: 20px;
             border-radius: 10px;
-            backdrop-filter: blur(3px);
+            backdrop-filter: blur(5px);
             border: 1px solid rgba(255,255,255,0.1);
         }
 
@@ -197,21 +203,26 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 12px 24px;
+            padding: 14px 28px;
             border: 1px solid var(--blood-red);
-            background: rgba(0,0,0,0.8);
+            background: rgba(0,0,0,0.85);
             color: var(--text-color);
             text-decoration: none;
             font-family: 'Cinzel', serif;
             font-weight: 700;
             transition: all 0.3s ease;
-            min-width: 150px;
+            min-width: 160px;
             text-transform: uppercase;
             backdrop-filter: blur(4px);
-            max-width: 90%; 
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
         }
         .btn i { margin-right: 10px; font-size: 1.2rem; }
-        .btn:hover { background-color: var(--blood-red); color: #fff; box-shadow: 0 0 20px var(--blood-red); transform: translateY(-3px); }
+        .btn:hover { 
+            background-color: var(--blood-red); 
+            color: #fff; 
+            box-shadow: 0 0 20px var(--blood-red); 
+            transform: translateY(-3px); 
+        }
 
         .divider {
             height: 1px; width: 100px;
@@ -232,10 +243,9 @@
         
         /* Mobile Specific Adjustments */
         @media (max-width: 600px) {
-            h1 { font-size: 2rem; }
-            h2 { font-size: 0.9rem; letter-spacing: 2px; }
-            .bg-container img { width: 140px; height: 90px; }
+            .bg-container img { width: 150px; height: 100px; }
             .btn { width: 100%; margin-bottom: 5px; } 
+            p.description { font-size: 1rem; padding: 15px; }
         }
     </style>
 </head>
@@ -328,13 +338,23 @@
         if (imageFiles.length > 0) {
             shuffleArray(imageFiles);
 
-            // Repeat the list 4 times to ensure seamless scrolling
-            const infiniteList = [...imageFiles, ...imageFiles, ...imageFiles, ...imageFiles];
+            // 1. Create a massive list (e.g., repeat the original list 12 times)
+            // This ensures we have enough images for 4K screens and huge areas.
+            let bigList = [];
+            for(let i=0; i<12; i++) {
+                bigList = bigList.concat(imageFiles);
+            }
 
-            infiniteList.forEach(filename => {
+            // 2. We need TWO identical sets of this big list to make the loop seamless.
+            // Set A + Set B.
+            // When Set A finishes scrolling, we snap back to the start.
+            const seamlessList = [...bigList, ...bigList];
+
+            seamlessList.forEach(filename => {
                 const img = document.createElement('img');
                 img.src = "img/" + filename; 
                 img.alt = "Atmosphere";
+                img.loading = "lazy"; // Optimization for performance
                 img.onerror = function() { this.style.display = 'none'; };
                 bgContainer.appendChild(img);
             });
