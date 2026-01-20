@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <title>Athens Through Time | Vampire: The Masquerade LARP</title>
+    <meta name="title" content="Athens Through Time | Vampire: The Masquerade LARP">
+    <meta name="description" content="Join Athens Through Time, a Vampire: The Masquerade LARP set in the modern nights of Athens. Produced by Cerebral Productions. The history runs deep.">
+    <meta name="keywords" content="Vampire the Masquerade, LARP, Athens, Roleplaying, WoD, World of Darkness, RPG, Cerebral Productions">
+    
+    <meta name="author" content="MikeTsak.gr">
+    <meta name="creator" content="MikeTsak.gr">
+    
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#0a0a0a">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://attlarp.gr/">
+    <meta property="og:title" content="Athens Through Time | VtM LARP">
+    <meta property="og:description" content="The night is young, and the history runs deep. Join us in the shadows of Athens. Produced by Cerebral Productions.">
+    <meta property="og:image" content="https://attlarp.gr/ATT-logo(1).png">
+
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://attlarp.gr/">
+    <meta property="twitter:title" content="Athens Through Time | VtM LARP">
+    <meta property="twitter:description" content="The night is young, and the history runs deep. Join us in the shadows of Athens.">
+    <meta property="twitter:image" content="https://attlarp.gr/ATT-logo(1).png">
+
+    <link rel="icon" type="image/png" href="ATT-logo(1).png">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Lato:wght@300;400&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* --- CSS STYLES --- */
+        :root {
+            --bg-color: #0a0a0a;
+            --text-color: #e0e0e0;
+            --blood-red: #8a0303;
+            --gold: #c5a059;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Lato', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow-y: auto; 
+            overflow-x: hidden; 
+            position: relative;
+        }
+
+        /* --- ROLLING ANIMATION --- */
+        @keyframes rollBackground {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-50%); }
+        }
+
+        /* Wrapper that holds the angled content */
+        .bg-wrapper {
+            position: fixed;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 250%; 
+            z-index: -2;
+            transform: rotate(-15deg); 
+            overflow: hidden;
+            pointer-events: none; /* Ensure clicks go through to content */
+        }
+
+        /* The container that actually moves */
+        .bg-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-content: flex-start;
+            gap: 10px;
+            width: 100%;
+            animation: rollBackground 80s linear infinite; 
+        }
+
+        .bg-container img {
+            width: 300px;
+            height: 200px;
+            object-fit: cover;
+            filter: grayscale(30%) contrast(1.2); 
+            box-shadow: 0 0 10px rgba(0,0,0,0.8);
+            border-radius: 4px;
+            opacity: 0.9; 
+            flex-shrink: 0;
+        }
+
+        /* --- OVERLAY --- */
+        .overlay {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: radial-gradient(circle at center, rgba(0,0,0,0.4) 10%, rgba(0,0,0,0.95) 90%);
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        /* --- CONTENT --- */
+        .container {
+            max-width: 800px;
+            margin: auto;
+            padding: 2rem 1rem; /* Added padding for mobile edges */
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            z-index: 1;
+            width: 100%;
+        }
+
+        /* Rounded Corners for Logo */
+        .main-logo {
+            max-width: 300px; 
+            width: 100%;
+            height: auto;
+            margin-bottom: 1rem;
+            filter: drop-shadow(0 0 15px rgba(138, 3, 3, 0.6));
+            border-radius: 20px; /* Rounds the corners */
+        }
+
+        h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 3rem;
+            letter-spacing: 2px;
+            color: var(--text-color);
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            text-shadow: 0 4px 15px rgba(0, 0, 0, 1);
+            line-height: 1.1; 
+        }
+
+        h2 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.2rem;
+            color: var(--blood-red);
+            letter-spacing: 4px;
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+            border-bottom: 1px solid var(--blood-red);
+            padding-bottom: 10px;
+            background: rgba(0,0,0,0.6);
+            box-shadow: 0 0 15px rgba(0,0,0,0.6);
+            backdrop-filter: blur(2px);
+        }
+
+        p.description {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+            color: #fff; 
+            text-shadow: 0 2px 5px #000;
+            max-width: 600px;
+            background: rgba(0,0,0,0.5); 
+            padding: 20px;
+            border-radius: 10px;
+            backdrop-filter: blur(3px);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .producer-tag {
+            font-size: 0.9rem;
+            margin-bottom: 2rem;
+            font-style: italic;
+            text-shadow: 0 2px 4px #000;
+        }
+        .producer-tag a { color: var(--gold); text-decoration: none; }
+        .producer-tag a:hover { text-decoration: underline; }
+
+        /* Buttons */
+        .social-links {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 2rem;
+            width: 100%;
+        }
+
+        .btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 24px;
+            border: 1px solid var(--blood-red);
+            background: rgba(0,0,0,0.8);
+            color: var(--text-color);
+            text-decoration: none;
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            min-width: 150px;
+            text-transform: uppercase;
+            backdrop-filter: blur(4px);
+            max-width: 90%; 
+        }
+        .btn i { margin-right: 10px; font-size: 1.2rem; }
+        .btn:hover { background-color: var(--blood-red); color: #fff; box-shadow: 0 0 20px var(--blood-red); transform: translateY(-3px); }
+
+        .divider {
+            height: 1px; width: 100px;
+            background: linear-gradient(90deg, transparent, var(--blood-red), transparent);
+            margin: 2rem auto;
+        }
+
+        /* Footer */
+        footer {
+            padding: 2rem; font-size: 0.8rem; color: #aaa;
+            border-top: 1px solid #222; background: rgba(0,0,0,0.95);
+            z-index: 1; text-align: center; width: 100%;
+            margin-top: auto; 
+        }
+        
+        footer a { color: #ccc; text-decoration: none; transition: 0.3s; font-weight: bold; }
+        footer a:hover { color: var(--blood-red); }
+        
+        /* Mobile Specific Adjustments */
+        @media (max-width: 600px) {
+            h1 { font-size: 2rem; }
+            h2 { font-size: 0.9rem; letter-spacing: 2px; }
+            .bg-container img { width: 140px; height: 90px; }
+            .btn { width: 100%; margin-bottom: 5px; } 
+        }
+    </style>
+</head>
+<body>
+
+    <div class="bg-wrapper">
+        <div class="bg-container" id="bg-collage">
+            </div>
+    </div>
+
+    <div class="overlay"></div>
+
+    <div class="container">
+        
+        <img src="animated.gif" alt="Athens Through Time Logo" class="main-logo">
+
+        <h1>Athens Through Time</h1>
+        <h2>Vampire: The Masquerade LARP</h2>
+
+        <p class="description">
+            The night is young, and the history runs deep. <br>
+            Join us in the shadows of Athens. <br><br>
+            <strong>Website Coming Soon.</strong>
+        </p>
+
+        <div class="social-links">
+            <a href="https://discord.com/invite/RPQHKBWa4U" class="btn" target="_blank">
+                <i class="fa-brands fa-discord"></i> Discord
+            </a>
+            <a href="https://www.instagram.com/att.larp/" class="btn" target="_blank">
+                <i class="fa-brands fa-instagram"></i> Instagram
+            </a>
+            <a href="https://www.facebook.com/att.larp" class="btn" target="_blank">
+                <i class="fa-brands fa-facebook-f"></i> Facebook
+            </a>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="producer-tag">
+            Produced by <a href="https://cerebralproductions.eu/" target="_blank">Cerebral Productions</a>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; <span id="year"></span> Athens Through Time. All rights reserved.</p>
+        <p>
+            Photography by <a href="https://www.instagram.com/lefterisliou_photography/" target="_blank">Lefteris Liou</a>
+            <span style="margin: 0 5px;">|</span> 
+            Website by <a href="https://miketsak.gr" target="_blank">MikeTsak.gr</a>
+        </p>
+    </footer>
+
+    <script>
+        const imageFiles = [
+            "Athens through time (1).jpg",
+            "Athens through time (129).jpg",
+            "Athens through time (2).jpg",
+            "Athens through time (23).jpg",
+            "Athens through time (4).jpg",
+            "Athens through time (9).jpg",
+            "Athens through time (94).jpg",
+            "Athens through time (99).jpg",
+            "Athens through time 2-1.jpg",
+            "Athens through time 2-13.jpg",
+            "Athens through time 2-170.jpg",
+            "Athens through time 2-20.jpg",
+            "Athens through time 2-207.jpg",
+            "Athens through time 2-21.jpg",
+            "Athens through time 2-33.jpg",
+            "Athens through time 3 (166).jpg",
+            "Athens through time 3 (242).jpg",
+            "Athens through time 3 (266).jpg",
+            "Athens through time 3 (278).jpg",
+            "Athens through time 3 (307).jpg",
+            "Athens through time 3 (316).jpg",
+            "Athens through time 3 (39).jpg",
+            "Athens through time 3 (45).jpg"
+        ];
+
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+        }
+
+        const bgContainer = document.getElementById('bg-collage');
+
+        if (imageFiles.length > 0) {
+            shuffleArray(imageFiles);
+
+            // Repeat the list 4 times to ensure seamless scrolling
+            const infiniteList = [...imageFiles, ...imageFiles, ...imageFiles, ...imageFiles];
+
+            infiniteList.forEach(filename => {
+                const img = document.createElement('img');
+                img.src = "img/" + filename; 
+                img.alt = "Atmosphere";
+                img.onerror = function() { this.style.display = 'none'; };
+                bgContainer.appendChild(img);
+            });
+        }
+
+        document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+
+</body>
+</html>
