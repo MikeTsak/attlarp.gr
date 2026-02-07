@@ -6,6 +6,7 @@ import HeroSection from "../components/HeroSection.vue";
   <div class="bg-background-dark text-white">
     <HeroSection />
 
+    <!-- WELCOME SECTION -->
     <section
       class="py-24 px-4 md:px-10 lg:px-40 bg-background-dark border-y border-[#39282a]"
       id="welcome"
@@ -50,6 +51,7 @@ import HeroSection from "../components/HeroSection.vue";
       </div>
     </section>
 
+    <!-- CHRONICLE CYCLE SECTION -->
     <section class="py-24 px-4 md:px-10 lg:px-40 bg-background-dark relative" id="chronicle">
       <div class="max-w-[1200px] mx-auto">
         <div class="flex flex-col items-center text-center mb-16">
@@ -94,7 +96,7 @@ import HeroSection from "../components/HeroSection.vue";
             </div>
             <h3 class="text-2xl font-bold text-white mb-4">Structure of Play</h3>
             <p class="text-gray-400 text-sm leading-relaxed">
-              We play in blocks of four. <strong>Three Modern Nights</strong> events (set in 2024)
+              We play in blocks of four. <strong>Three Modern Nights</strong> events (set in 2026)
               are followed by <strong>One Historical Echo</strong> (set in a significant era like
               Classical Greece or the Ottoman occupation). Each Echo concludes a chapter of the
               story.
@@ -111,7 +113,7 @@ import HeroSection from "../components/HeroSection.vue";
             <h3 class="text-2xl font-bold text-white mb-4">Your Character(s)</h3>
             <p class="text-gray-400 text-sm leading-relaxed">
               Every player maintains two personas. Your <strong>Main Character</strong> navigates
-              the neon-lit 2024. Your <strong>Ancestor</strong> (or younger self) is played during
+              the neon-lit 2026. Your <strong>Ancestor</strong> (or younger self) is played during
               the Echoes. The sins of the Ancestor become the burdens of the Main Character.
             </p>
           </div>
@@ -135,7 +137,7 @@ import HeroSection from "../components/HeroSection.vue";
                     </h5>
                     <p class="text-gray-400 text-sm">
                       V5 Neonates and Ancillae struggling with the Second Inquisition and Sect
-                      warfare in 2024.
+                      warfare in 2026.
                     </p>
                   </div>
                 </div>
@@ -154,15 +156,14 @@ import HeroSection from "../components/HeroSection.vue";
               </div>
             </div>
             <div class="lg:w-1/2 grid grid-cols-2 gap-4">
+              <!-- Using background-image for consistency and updated to local path -->
               <div
                 class="aspect-square rounded-lg bg-cover bg-center border border-[#39282a]"
                 style="background-image: url(&quot;/img/pexels-photo-20872396.jpg&quot;)"
               ></div>
               <div
                 class="aspect-square rounded-lg bg-cover bg-center border border-[#39282a]"
-                style="
-                  background-image: url(&quot;https://images.unsplash.com/photo-1542256843-04e4c3d33261?q=80&quot;);
-                "
+                style="background-image: url(&quot;/img/cycle-2.jpg&quot;)"
               ></div>
             </div>
           </div>
@@ -170,6 +171,7 @@ import HeroSection from "../components/HeroSection.vue";
       </div>
     </section>
 
+    <!-- SETTING SECTION -->
     <section class="py-24 bg-[#0f0a0b]" id="setting">
       <div class="px-4 md:px-10 lg:px-40 flex justify-center">
         <div class="max-w-[1200px] w-full">
@@ -185,9 +187,7 @@ import HeroSection from "../components/HeroSection.vue";
             >
               <div
                 class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
-                style="
-                  background-image: url(&quot;https://images.unsplash.com/photo-1596727147705-54a9d0c2067d?q=80&quot;);
-                "
+                style="background-image: url(&quot;/img/setting-modern.jpg&quot;)"
               ></div>
               <div
                 class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent"
@@ -200,7 +200,7 @@ import HeroSection from "../components/HeroSection.vue";
                 </div>
                 <h4 class="text-2xl font-bold text-white mb-2">Modern Necropolis</h4>
                 <p class="text-gray-300">
-                  2024 Athens is a sprawling labyrinth. Under the neon glare, the Kindred maintain a
+                  2026 Athens is a sprawling labyrinth. Under the neon glare, the Kindred maintain a
                   fragile peace while the Anarchs and Camarilla fight for the soul of the port.
                 </p>
               </div>
@@ -210,9 +210,7 @@ import HeroSection from "../components/HeroSection.vue";
             >
               <div
                 class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0"
-                style="
-                  background-image: url(&quot;https://images.unsplash.com/photo-1555662760-49272332694b?q=80&quot;);
-                "
+                style="background-image: url(&quot;/img/setting-legacy.jpg&quot;)"
               ></div>
               <div
                 class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent"
@@ -235,6 +233,7 @@ import HeroSection from "../components/HeroSection.vue";
       </div>
     </section>
 
+    <!-- STORYTELLERS SECTION -->
     <section
       class="py-24 px-4 md:px-10 lg:px-40 bg-background-dark border-t border-[#39282a]"
       id="storytellers"
@@ -244,40 +243,39 @@ import HeroSection from "../components/HeroSection.vue";
         <h3 class="text-4xl md:text-5xl font-black text-white mb-8">The Storytellers</h3>
         <p class="text-gray-400 max-w-2xl mx-auto mb-12">
           Meet the architects of the night. Our team of experienced Storytellers has over two
-          decades of combined experience in running high-immersion RPG campaigns.
+          decades of combined experience in running high-immersion VtM chronicles.
         </p>
 
         <!-- UPDATED STORYTELLER GRID (2 Columns) -->
         <div class="grid sm:grid-cols-2 gap-8 max-w-4xl mx-auto">
           <!-- Kikos -->
           <div class="bg-surface-dark border border-[#39282a] p-8 rounded-xl text-center">
-            <img
-              src="/img/st/kikos-1.jpg"
-              alt="Kikos"
-              class="size-24 rounded-full mx-auto mb-4 border-2 border-primary object-cover"
-            />
+            <div
+              class="size-24 rounded-full mx-auto mb-4 border-2 border-primary bg-cover bg-center"
+              style="background-image: url(&quot;/img/st/kikos-1.jpg&quot;)"
+            ></div>
             <h4 class="text-white font-bold text-xl mb-1">Kikos</h4>
             <p class="text-primary text-xs uppercase font-bold tracking-widest mb-4">
-              SΤ, Politics Master, PR Specialist
+              Systems Architect
             </p>
           </div>
 
           <!-- Mike -->
           <div class="bg-surface-dark border border-[#39282a] p-8 rounded-xl text-center">
-            <img
-              src="/img/st/mike-1.jpg"
-              alt="Mike"
-              class="size-24 rounded-full mx-auto mb-4 border-2 border-primary object-cover"
-            />
+            <div
+              class="size-24 rounded-full mx-auto mb-4 border-2 border-primary bg-cover bg-center"
+              style="background-image: url(&quot;/img/st/mike-1.jpg&quot;)"
+            ></div>
             <h4 class="text-white font-bold text-xl mb-1">Mike</h4>
             <p class="text-primary text-xs uppercase font-bold tracking-widest mb-4">
-              ST, Occult Master, Tech Specialist
+              Narrative Design
             </p>
           </div>
         </div>
       </div>
     </section>
 
+    <!-- GALLERY TEASER SECTION -->
     <section class="py-24 px-4 md:px-10 lg:px-40 bg-background-dark" id="gallery">
       <div class="max-w-[1200px] mx-auto">
         <div class="flex flex-col items-center text-center mb-16">
@@ -285,60 +283,48 @@ import HeroSection from "../components/HeroSection.vue";
           <h3 class="text-4xl md:text-5xl font-black text-white">Archives of the Night</h3>
         </div>
         <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <!-- Gallery Item 1 -->
           <div
-            class="aspect-square bg-surface-dark border border-[#39282a] rounded overflow-hidden"
-          >
-            <img
-              src="https://images.unsplash.com/photo-1542052973-1f7c1945f32b?q=80"
-              alt="Gallery 1"
-              class="w-full h-full object-cover opacity-60 hover:opacity-100 transition-opacity"
-            />
-          </div>
+            class="aspect-square bg-surface-dark border border-[#39282a] rounded overflow-hidden bg-cover bg-center opacity-60 hover:opacity-100 transition-opacity"
+            style="background-image: url(&quot;/img/gallery/1.jpg&quot;)"
+          ></div>
+          <!-- Gallery Item 2 -->
           <div
-            class="aspect-square bg-surface-dark border border-[#39282a] rounded overflow-hidden"
-          >
-            <img
-              src="https://images.unsplash.com/photo-1557053503-0c252e5c8093?q=80"
-              alt="Gallery 2"
-              class="w-full h-full object-cover opacity-60 hover:opacity-100 transition-opacity"
-            />
-          </div>
+            class="aspect-square bg-surface-dark border border-[#39282a] rounded overflow-hidden bg-cover bg-center opacity-60 hover:opacity-100 transition-opacity"
+            style="background-image: url(&quot;/img/gallery/2.jpg&quot;)"
+          ></div>
+          <!-- Gallery Item 3 -->
           <div
-            class="aspect-square bg-surface-dark border border-[#39282a] rounded overflow-hidden"
-          >
-            <img
-              src="https://images.unsplash.com/photo-1509059852496-f3822ae048eb?q=80"
-              alt="Gallery 3"
-              class="w-full h-full object-cover opacity-60 hover:opacity-100 transition-opacity"
-            />
-          </div>
+            class="aspect-square bg-surface-dark border border-[#39282a] rounded overflow-hidden bg-cover bg-center opacity-60 hover:opacity-100 transition-opacity"
+            style="background-image: url(&quot;/img/gallery/3.jpg&quot;)"
+          ></div>
+          <!-- Gallery Item 4 -->
           <div
-            class="aspect-square bg-surface-dark border border-[#39282a] rounded overflow-hidden"
-          >
-            <img
-              src="https://images.unsplash.com/photo-1504198266287-1659872e6590?q=80"
-              alt="Gallery 4"
-              class="w-full h-full object-cover opacity-60 hover:opacity-100 transition-opacity"
-            />
-          </div>
+            class="aspect-square bg-surface-dark border border-[#39282a] rounded overflow-hidden bg-cover bg-center opacity-60 hover:opacity-100 transition-opacity"
+            style="background-image: url(&quot;/img/gallery/4.jpg&quot;)"
+          ></div>
         </div>
       </div>
     </section>
 
+    <!-- REGISTER SECTION -->
     <section class="relative py-32 flex items-center justify-center overflow-hidden" id="register">
       <div class="absolute inset-0 bg-[#181112]">
         <div
           class="absolute inset-0 opacity-10 bg-cover bg-center"
-          style="
-            background-image: url(&quot;https://images.unsplash.com/photo-1620393470010-fd700cc38666?q=80&quot;);
-          "
+          style="background-image: url(&quot;/img/register-bg.jpg&quot;)"
         ></div>
         <div
           class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/10 blur-[150px] rounded-full pointer-events-none"
         ></div>
       </div>
       <div class="relative z-10 max-w-xl w-full px-6 text-center">
-        <span class="material-symbols-outlined text-6xl text-primary mb-6">bloodtype</span>
+        <!-- Replaced Icon with Logo -->
+        <img
+          src="/img/ATT-logo(1).png"
+          alt="Logo"
+          class="h-20 w-auto mx-auto mb-6 opacity-90 object-contain"
+        />
         <h2 class="text-4xl md:text-5xl font-black text-white mb-6 tracking-tight">
           Join the Masquerade
         </h2>

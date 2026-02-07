@@ -40,7 +40,7 @@
         <h3
           class="text-primary text-2xl font-bold mb-6 text-center uppercase tracking-widest font-sans"
         >
-          The Masterminds
+          The Storytellers
         </h3>
         <p class="text-gray-300 text-lg leading-relaxed text-center px-4 md:px-20 italic">
           Athens Through Time wasn't born from a single dream, but from a collision of visions. Meet
