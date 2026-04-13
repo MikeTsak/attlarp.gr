@@ -188,10 +188,11 @@
                 chronicle, field reports suggest a startling irony: The World of Darkness is
                 actually NOT the favorite gaming universe for either Architect.
                 <br /><br />
-                When the sun rises, you're more likely to find them debating the logistics of a
-                Martian colony or the tactical nuances of high-fantasy skirmishes. Perhaps it is
-                this outsider's perspective that allows them to deconstruct and rebuild the
-                Masquerade with such ruthless efficiency."
+                When the sun rises, you're more likely to find them debating when the
+                Tyxero Vraki will actually drop or how much ice cream a clone can
+                consume on a daily basis. Perhaps it is this outsider's perspective
+                that allows them to deconstruct and rebuild the Masquerade with
+                such ruthless efficiency."
               </p>
             </div>
             <div

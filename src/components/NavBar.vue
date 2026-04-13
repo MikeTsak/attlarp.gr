@@ -66,10 +66,13 @@ const navTo = (page) => {
 
         <div class="flex items-center gap-4">
           <a
-            href="#register"
-            class="hidden sm:flex items-center justify-center overflow-hidden rounded h-10 px-6 bg-primary hover:bg-primary-dark transition-all text-white text-xs font-bold uppercase tracking-widest shadow-[0_0_15px_rgba(212, 17, 33, 0.3)] hover:shadow-[0_0_25px_rgba(212, 17, 33, 0.6)]"
+            href="https://discord.gg/ZeNg6cdPbj"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="hidden sm:flex items-center justify-center gap-2 overflow-hidden rounded h-10 px-6 bg-primary hover:bg-primary-dark transition-all text-white text-xs font-bold uppercase tracking-widest shadow-[0_0_15px_rgba(212, 17, 33, 0.3)] hover:shadow-[0_0_25px_rgba(212, 17, 33, 0.6)]"
           >
-            Register
+            <span>Join</span>
+            <img src="/img/discord.webp" alt="Discord" class="h-4 w-4 object-contain" />
           </a>
           <button class="lg:hidden text-white" @click="isMenuOpen = !isMenuOpen">
             <span class="material-symbols-outlined">menu</span>
@@ -107,8 +110,18 @@ const navTo = (page) => {
         href="https://portal.attlarp.gr"
         target="_blank"
         class="text-primary text-xs font-bold uppercase tracking-widest"
-        >Portal</a
       >
+        Portal
+      </a>
+      <a
+        href="https://discord.gg/ZeNg6cdPbj"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="flex items-center gap-2 text-primary text-xs font-bold uppercase tracking-widest mt-2"
+      >
+        <span>Join Discord</span>
+        <img src="/img/discord.webp" alt="Discord" class="h-4 w-4 object-contain" />
+      </a>
     </div>
   </nav>
 </template>

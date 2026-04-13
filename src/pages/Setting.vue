@@ -12,11 +12,10 @@
         <div
           class="absolute inset-0 bg-gradient-to-r from-[#181112] via-transparent to-transparent z-10"
         ></div>
-        <img
-          src="https://images.unsplash.com/photo-1596727147705-54a9d0c2067d?q=80"
-          alt="Dark cityscape of Athens"
-          class="h-full w-full object-cover object-center opacity-40"
-        />
+        <div
+          class="absolute inset-0 bg-cover bg-center opacity-40"
+          style="background-image: url('/img/back33.jpg')"
+        ></div>
       </div>
 
       <div class="relative z-20 px-4 md:px-10 lg:px-40 flex flex-1 items-center justify-center">
@@ -237,13 +236,12 @@
       <div class="grid grid-cols-1 lg:grid-cols-2 min-h-[700px]">
         <div class="relative min-h-[450px] lg:min-h-full overflow-hidden group">
           <div
-            class="absolute inset-0 bg-black/70 z-10 group-hover:bg-black/50 transition-all duration-700"
+            class="absolute inset-0 z-10 transition-all duration-700"
           ></div>
-          <img
-            src="https://images.unsplash.com/photo-1572522080356-4c4892c73041?q=80"
-            alt="Modern Athens"
-            class="h-full w-full object-cover transform group-hover:scale-105 transition-transform duration-700"
-          />
+          <div
+            class="absolute inset-0 bg-cover bg-center transform group-hover:scale-105 transition-transform duration-700"
+            style="background-image: url('/img/Copyof1(5).jpg')"
+          ></div>
           <div class="absolute bottom-0 left-0 p-8 md:p-16 z-20 max-w-xl">
             <div class="flex items-center gap-2 text-primary mb-4">
               <span class="material-symbols-outlined">nightlight</span>
@@ -274,14 +272,11 @@
         <div
           class="relative min-h-[450px] lg:min-h-full overflow-hidden group border-t lg:border-t-0 lg:border-l border-[#39282a]"
         >
+          <div class="absolute inset-0 z-10 bg-black/40 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
           <div
-            class="absolute inset-0 bg-[#2a1618]/85 z-10 group-hover:bg-[#2a1618]/70 transition-all duration-700"
+            class="absolute inset-0 bg-cover bg-center transform group-hover:scale-105 transition-transform duration-700"
+            style="background-image: url('/img/Copyof137.jpg')"
           ></div>
-          <img
-            src="https://images.unsplash.com/photo-1555662760-49272332694b?q=80"
-            alt="Ancient Greece"
-            class="h-full w-full object-cover transform group-hover:scale-105 transition-transform duration-700 grayscale mix-blend-multiply"
-          />
           <div class="absolute bottom-0 left-0 p-8 md:p-16 z-20 max-w-xl">
             <div class="flex items-center gap-2 text-gold mb-4">
               <span class="material-symbols-outlined">auto_stories</span>

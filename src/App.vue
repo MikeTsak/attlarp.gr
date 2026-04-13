@@ -23,10 +23,10 @@ const switchView = (viewName) => {
     <NavBar @navigate="switchView" />
 
     <div class="flex-grow">
-      <Home v-if="currentView === 'home'" />
-      <Setting v-if="currentView === 'setting'" />
-      <Gallery v-if="currentView === 'gallery'" />
-      <Storytellers v-if="currentView === 'storytellers'" />
+      <Home v-if="currentView === 'home'" @navigate="switchView" />
+      <Setting v-if="currentView === 'setting'" @navigate="switchView" />
+      <Gallery v-if="currentView === 'gallery'" @navigate="switchView" />
+      <Storytellers v-if="currentView === 'storytellers'" @navigate="switchView" />
     </div>
 
     <FooterSection @navigate="switchView" />
