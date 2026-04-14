@@ -55,14 +55,13 @@
           class="flex p-6 bg-surface-dark/50 rounded-xl border border-white/5 hover:border-primary/30 transition-all duration-500 hover:bg-surface-dark"
         >
           <div class="flex w-full flex-col gap-8 md:flex-row items-center">
-            <div class="relative group shrink-0">
-              <!-- Kikos Image Updated -->
+<div class="relative group shrink-0 w-full md:w-64">
               <div
-                class="bg-center bg-no-repeat bg-cover rounded-lg h-80 w-full md:w-64 border-2 border-primary/20 shadow-2xl transition-transform duration-500 group-hover:scale-[1.02]"
+                class="bg-center bg-no-repeat bg-cover rounded-lg h-80 w-full border-2 border-primary/20 shadow-2xl transition-transform duration-500 group-hover:scale-[1.02]"
                 style="background-image: url(&quot;/img/st/kikos-2.jpg&quot;)"
               ></div>
               <div
-                class="absolute inset-0 bg-primary/10 mix-blend-multiply opacity-50 rounded-lg"
+                class="absolute inset-0 bg-primary/10 mix-blend-multiply opacity-50 rounded-lg pointer-events-none"
               ></div>
             </div>
             <div class="flex flex-col justify-center flex-1 text-center md:text-left">
@@ -97,14 +96,13 @@
           class="flex p-6 bg-surface-dark/50 rounded-xl border border-white/5 hover:border-primary/30 transition-all duration-500 hover:bg-surface-dark"
         >
           <div class="flex w-full flex-col gap-8 md:flex-row-reverse items-center">
-            <div class="relative group shrink-0">
-              <!-- Mike Image Updated -->
+<div class="relative group shrink-0 w-full md:w-64">
               <div
-                class="bg-center bg-no-repeat bg-cover rounded-lg h-80 w-full md:w-64 border-2 border-primary/20 shadow-2xl transition-transform duration-500 group-hover:scale-[1.02]"
+                class="bg-center bg-no-repeat bg-cover rounded-lg h-80 w-full border-2 border-primary/20 shadow-2xl transition-transform duration-500 group-hover:scale-[1.02]"
                 style="background-image: url(&quot;/img/st/mike-2.jpg&quot;)"
               ></div>
               <div
-                class="absolute inset-0 bg-primary/10 mix-blend-multiply opacity-30 rounded-lg"
+                class="absolute inset-0 bg-primary/10 mix-blend-multiply opacity-30 rounded-lg pointer-events-none"
               ></div>
             </div>
             <div class="flex flex-col justify-center flex-1 text-center md:text-right">

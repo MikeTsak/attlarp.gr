@@ -1,3 +1,7 @@
+<script setup>
+defineEmits(["navigate"]);
+</script>
+
 <template>
   <header
     class="relative flex min-h-[90vh] w-full flex-col items-center justify-center overflow-hidden"
@@ -13,7 +17,7 @@
 
       <div
         class="h-full w-full bg-cover bg-center bg-no-repeat transition-transform duration-[20s]"
-        style="background-image: url(&quot;/img/pexels-photo-20872396.jpg&quot;)"
+        style="background-image: url('/img/pexels-photo-20872396.jpg')"
       ></div>
     </div>
 
@@ -45,8 +49,9 @@
           Join the Chronicle
         </a>
         <a
-          href="#welcome"
-          class="flex items-center justify-center min-w-[180px] rounded h-12 px-8 bg-transparent border border-white/20 hover:border-primary hover:text-primary text-white font-bold uppercase tracking-widest transition-all backdrop-blur-sm"
+          href="#"
+          @click.prevent="$emit('navigate', 'setting')"
+          class="flex items-center justify-center min-w-[180px] rounded h-12 px-8 bg-transparent border border-white/20 hover:border-primary hover:text-primary text-white font-bold uppercase tracking-widest transition-all backdrop-blur-sm cursor-pointer"
         >
           The Lore
         </a>

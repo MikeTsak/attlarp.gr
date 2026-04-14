@@ -34,8 +34,7 @@
             <p
               class="text-gray-300 text-lg md:text-xl font-light leading-relaxed max-w-[650px] border-l-4 border-primary pl-8 mb-10"
             >
-              In Athens, the past is never dead. It isn't even past. Uncover the secrets of your
-              lineage across centuries through our unique multi-generational gameplay structure.
+In a city like Athens , the past is never forgotten. Written on stone walls , in an old book or even in blood , the weight of heritage never ceases to exist. Through the eons , each new generation of Kindred is called to answer for the ancestor's actions and shape the future for themselves.
             </p>
             <button
               class="flex cursor-pointer items-center justify-center overflow-hidden rounded-lg h-14 px-10 bg-primary hover:bg-red-700 transition-all text-white text-base font-bold leading-normal tracking-widest uppercase"
@@ -56,9 +55,9 @@
                 The Structure of Play
               </h2>
               <p class="text-text-muted text-lg font-light leading-relaxed mb-6">
-                Our chronicle operates on a rigorous
-                <span class="text-primary font-bold">1:3 Ratio</span>. For every three sessions
-                played in the Modern Nights, we host one dedicated Legacy Session set in the past.
+                Wanting to keep our chronicle moving throughout the annals of Greek history and events, our events follow a steady
+                <span class="text-primary font-bold">1:3 Ratio</span>. Having three events taking place in Modern Nights,
+                the fourth event will be an instance of the past, a Legacy Event.
               </p>
               <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
                 <div class="bg-surface-dark p-4 border border-[#39282a] text-center">
@@ -166,16 +165,14 @@
                 </p>
                 <ul class="flex flex-col gap-3 text-sm">
                   <li class="flex items-center gap-2 lg:justify-end">
-                    <span class="text-primary font-bold">Uncover Secrets:</span> Find the locations
-                    of hidden havens.
+                    <span class="text-primary font-bold">Uncover Secrets:</span> Unearth old artifacts and forbidden texts.
                   </li>
                   <li class="flex items-center gap-2 lg:justify-end">
-                    <span class="text-primary font-bold">Forge Oaths:</span> Set the blood-debts
-                    your modern self must pay.
+                    <span class="text-primary font-bold">Forge Oaths:</span> Make allies and spurn enemies, how long will these oaths last in a kindred society?
                   </li>
                   <li class="flex items-center gap-2 lg:justify-end">
-                    <span class="text-primary font-bold">Rewrite History:</span> Change the
-                    political landscape of the modern nights.
+                    <span class="text-primary font-bold">Rewrite History:</span> Change the political landscape of the modern nights. The future is in your hands.
+
                   </li>
                 </ul>
               </div>
@@ -221,10 +218,9 @@
               <div class="h-12 w-px bg-primary mx-auto mb-6"></div>
               <h4 class="text-xl font-bold uppercase mb-4 tracking-widest">The Ripple Effect</h4>
               <p class="text-text-muted text-sm leading-relaxed">
-                Actions in the Legacy sessions are not "cutscenes." If your ancestor buries a relic
-                in 1821, your modern character can dig it up in the next Modern session. If your
-                ancestor betrays a Clan in the past, your modern character starts the next session
-                with a Blood Hunt on their head.
+              Actions taken during Legacy events, are not just ''cutscenes''. They have weight and will affect how the future will be shaped, perhaps in a subtle way or maybe with more impactful consequences. Shall your Legacy character perform an action like hiding an artifact , your future character could possibly find it and acquire the knowledge their ancestor left. Working in a similar pattern, shall your ancestor start a blood feud or make an enemy , your future self will be hold accountable to such actions.
+                <br />
+              The vitae unites all , and as the saying goes: <span class="text-primary"> "Blood is thicker than water".</span>
               </p>
             </div>
           </div>

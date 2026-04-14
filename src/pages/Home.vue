@@ -10,19 +10,19 @@ const navTo = (page) => {
 
 <template>
   <div class="bg-background-dark text-white">
-    <HeroSection />
+    <HeroSection @navigate="navTo"/>
 
     <section
       class="py-24 px-4 md:px-10 lg:px-40 bg-background-dark border-y border-[#39282a]"
       id="welcome"
     >
       <div class="max-w-[1200px] mx-auto grid lg:grid-cols-3 gap-12">
-        <div class="space-y-6">
+        <div @click="navTo('setting')" class="space-y-6 cursor-pointer group">
           <div class="flex items-center gap-3 text-primary">
             <span class="material-symbols-outlined">theater_comedy</span>
-            <h3 class="text-xl font-bold uppercase tracking-wider">What is LARP?</h3>
+            <h3 class="text-xl font-bold uppercase tracking-wider group-hover:text-white transition-colors">What is LARP?</h3>
           </div>
-          <p class="text-gray-400 leading-relaxed">
+          <p class="text-gray-400 leading-relaxed group-hover:text-gray-300 transition-colors">
             Live Action Role Playing (LARP) is a form of collaborative storytelling. You don't just
             describe your character's actions; you embody them. Dressed in costume, you interact
             with other players in real-time, making decisions that influence the shared narrative in
@@ -30,12 +30,12 @@ const navTo = (page) => {
           </p>
         </div>
 
-        <div class="space-y-6">
+        <div @click="navTo('setting')" class="space-y-6 cursor-pointer group">
           <div class="flex items-center gap-3 text-primary">
             <span class="material-symbols-outlined">bloodtype</span>
-            <h3 class="text-xl font-bold uppercase tracking-wider">What is VTM?</h3>
+            <h3 class="text-xl font-bold uppercase tracking-wider group-hover:text-white transition-colors">What is VTM?</h3>
           </div>
-          <p class="text-gray-400 leading-relaxed">
+          <p class="text-gray-400 leading-relaxed group-hover:text-gray-300 transition-colors">
             Vampire: The Masquerade is a game of personal and political horror. You play a vampire
             struggling to maintain your humanity while navigating the treacherous politics of the
             undead. In the 5th Edition (V5), the hunger is a constant companion, driving every
@@ -43,12 +43,12 @@ const navTo = (page) => {
           </p>
         </div>
 
-        <div class="space-y-6">
+        <div @click="navTo('setting')" class="space-y-6 cursor-pointer group">
           <div class="flex items-center gap-3 text-primary">
             <span class="material-symbols-outlined">history_edu</span>
-            <h3 class="text-xl font-bold uppercase tracking-wider">Athens Through Time?</h3>
+            <h3 class="text-xl font-bold uppercase tracking-wider group-hover:text-white transition-colors">Athens Through Time?</h3>
           </div>
-          <p class="text-gray-400 leading-relaxed">
+          <p class="text-gray-400 leading-relaxed group-hover:text-gray-300 transition-colors">
             This is a unique chronicle set in the cradle of civilization. Athens is a city where
             ancient gods have been replaced by eternal monsters. Here, the weight of history isn't
             just a metaphor—it's a mechanic. Our story spans generations, connecting the modern
@@ -84,14 +84,15 @@ const navTo = (page) => {
 
         <div class="grid md:grid-cols-3 gap-8">
           <div
-            class="bg-surface-dark border border-[#39282a] p-8 rounded-xl hover:border-primary/50 transition-all group"
+            @click="navTo('setting')"
+            class="bg-surface-dark border border-[#39282a] p-8 rounded-xl hover:border-primary/50 transition-all group cursor-pointer"
           >
             <div
               class="size-14 rounded-lg bg-primary/20 flex items-center justify-center text-primary mb-6 group-hover:scale-110 transition-transform"
             >
               <span class="material-symbols-outlined text-3xl">psychology</span>
             </div>
-            <h3 class="text-2xl font-bold text-white mb-4">The Core Concept</h3>
+            <h3 class="text-2xl font-bold text-white mb-4 group-hover:text-primary transition-colors">The Core Concept</h3>
             <p class="text-gray-400 text-sm leading-relaxed">
               The chronicle is built on the principle of <strong>causality</strong>. Actions taken
               during historical events aren't just "lore"—they are active gameplay that changes the
@@ -100,14 +101,15 @@ const navTo = (page) => {
           </div>
 
           <div
-            class="bg-surface-dark border border-[#39282a] p-8 rounded-xl hover:border-primary/50 transition-all group"
+            @click="navTo('setting')"
+            class="bg-surface-dark border border-[#39282a] p-8 rounded-xl hover:border-primary/50 transition-all group cursor-pointer"
           >
             <div
               class="size-14 rounded-lg bg-primary/20 flex items-center justify-center text-primary mb-6 group-hover:scale-110 transition-transform"
             >
               <span class="material-symbols-outlined text-3xl">account_tree</span>
             </div>
-            <h3 class="text-2xl font-bold text-white mb-4">Structure of Play</h3>
+            <h3 class="text-2xl font-bold text-white mb-4 group-hover:text-primary transition-colors">Structure of Play</h3>
             <p class="text-gray-400 text-sm leading-relaxed">
               We play in blocks of four. <strong>Three Modern Nights</strong> events (set in 2026)
               are followed by <strong>One Historical Echo</strong> (set in a significant era like
@@ -117,14 +119,15 @@ const navTo = (page) => {
           </div>
 
           <div
-            class="bg-surface-dark border border-[#39282a] p-8 rounded-xl hover:border-primary/50 transition-all group"
+            @click="navTo('setting')"
+            class="bg-surface-dark border border-[#39282a] p-8 rounded-xl hover:border-primary/50 transition-all group cursor-pointer"
           >
             <div
               class="size-14 rounded-lg bg-primary/20 flex items-center justify-center text-primary mb-6 group-hover:scale-110 transition-transform"
             >
               <span class="material-symbols-outlined text-3xl">groups_3</span>
             </div>
-            <h3 class="text-2xl font-bold text-white mb-4">Your Character(s)</h3>
+            <h3 class="text-2xl font-bold text-white mb-4 group-hover:text-primary transition-colors">Your Character(s)</h3>
             <p class="text-gray-400 text-sm leading-relaxed">
               Every player maintains two personas. Your <strong>Main Character</strong> navigates
               the neon-lit 2026. Your <strong>Ancestor</strong> (or younger self) is played during
@@ -134,15 +137,16 @@ const navTo = (page) => {
         </div>
 
         <div
-          class="mt-16 bg-[#1a0c0e] rounded-2xl border border-primary/20 p-8 md:p-12 overflow-hidden relative"
+          @click="navTo('setting')"
+          class="mt-16 bg-[#1a0c0e] rounded-2xl border border-primary/20 p-8 md:p-12 overflow-hidden relative cursor-pointer group hover:border-primary/50 transition-colors"
         >
           <div
-            class="absolute top-0 right-0 w-64 h-64 bg-primary/5 blur-[80px] rounded-full -mr-32 -mt-32"
+            class="absolute top-0 right-0 w-64 h-64 bg-primary/5 blur-[80px] rounded-full -mr-32 -mt-32 group-hover:bg-primary/10 transition-colors"
           ></div>
 
           <div class="relative z-10 flex flex-col lg:flex-row gap-12 items-center">
             <div class="lg:w-1/2 space-y-6">
-              <h4 class="text-3xl font-black text-white italic">"The Past is Never Truly Dead."</h4>
+              <h4 class="text-3xl font-black text-white italic group-hover:text-primary transition-colors">"The Past is Never Truly Dead."</h4>
 
               <div class="space-y-4">
                 <div class="flex gap-4">
@@ -175,11 +179,11 @@ const navTo = (page) => {
 
             <div class="lg:w-1/2 grid grid-cols-2 gap-4">
               <div
-                class="aspect-square rounded-lg bg-cover bg-center border border-[#39282a]"
+                class="aspect-square rounded-lg bg-cover bg-center border border-[#39282a] group-hover:scale-[1.02] transition-transform duration-500"
                 style="background-image: url('/img/Athensthrough time 3(47).jpg')"
               ></div>
               <div
-                class="aspect-square rounded-lg bg-cover bg-center border border-[#39282a]"
+                class="aspect-square rounded-lg bg-cover bg-center border border-[#39282a] group-hover:scale-[1.02] transition-transform duration-500 delay-75"
                 style="background-image: url('/img/Copyof179.jpg')"
               ></div>
             </div>
@@ -212,7 +216,7 @@ const navTo = (page) => {
           <button
             @click="navTo('storytellers')"
             type="button"
-            class="bg-surface-dark border border-[#39282a] p-8 rounded-xl text-center hover:border-primary/50 transition-all group"
+            class="bg-surface-dark border border-[#39282a] p-8 rounded-xl text-center hover:border-primary/50 transition-all group w-full"
           >
             <div
               class="size-24 rounded-full mx-auto mb-4 border-2 border-primary bg-cover bg-center group-hover:scale-105 transition-transform"
@@ -222,14 +226,14 @@ const navTo = (page) => {
               Kikos
             </h4>
             <p class="text-primary text-xs uppercase font-bold tracking-widest mb-4">
-              Systems Architect
+              SΤ, Politics Master, PR Specialist
             </p>
           </button>
 
           <button
             @click="navTo('storytellers')"
             type="button"
-            class="bg-surface-dark border border-[#39282a] p-8 rounded-xl text-center hover:border-primary/50 transition-all group"
+            class="bg-surface-dark border border-[#39282a] p-8 rounded-xl text-center hover:border-primary/50 transition-all group w-full"
           >
             <div
               class="size-24 rounded-full mx-auto mb-4 border-2 border-primary bg-cover bg-center group-hover:scale-105 transition-transform"
@@ -239,7 +243,7 @@ const navTo = (page) => {
               Mike
             </h4>
             <p class="text-primary text-xs uppercase font-bold tracking-widest mb-4">
-              Narrative Design
+              ST, Occult Master, Tech Specialist
             </p>
           </button>
         </div>
