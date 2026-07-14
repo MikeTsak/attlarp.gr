@@ -170,6 +170,7 @@ const closePreview = () => {
       </div>
       <img
         :src="previewImage"
+        alt="Expanded gallery image"
         class="max-w-[95vw] max-h-[90vh] object-contain shadow-[0_0_80px_rgba(0,0,0,0.8)] border border-white/5"
         @click.stop
       />

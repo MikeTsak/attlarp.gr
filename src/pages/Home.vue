@@ -292,7 +292,7 @@ const navTo = (page) => {
       <div class="relative z-10 max-w-xl w-full px-6 text-center">
         <img
           src="/img/ATT-logo(1).png"
-          alt="Logo"
+          alt="Athens Through Time Vampire LARP Logo"
           class="h-20 w-auto mx-auto mb-6 opacity-90 object-contain"
         />
 

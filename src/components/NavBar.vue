@@ -21,7 +21,7 @@ const navTo = (page) => {
         >
           <img
             src="/img/animated.gif"
-            alt="Logo"
+            alt="Athens Through Time Logo"
             class="h-10 w-10 object-cover rounded-full border border-primary/20"
           />
           <h2 class="text-lg font-bold uppercase tracking-widest hidden sm:block">

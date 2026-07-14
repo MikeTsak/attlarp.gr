@@ -6,7 +6,7 @@
           <div class="flex flex-col md:flex-row items-center gap-4 justify-center md:justify-start">
             <img
               src="/img/ATT-logo(1).png"
-              alt="Logo"
+              alt="Athens Through Time Logo"
               class="h-12 w-12 object-contain rounded-full border border-primary/20"
             />
             <h3 class="text-white font-bold uppercase tracking-[0.2em] text-lg">
