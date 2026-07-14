@@ -8,6 +8,15 @@ const navTo = (page) => {
   emit("navigate", page);
   isMenuOpen.value = false;
 };
+
+const trackClick = (platform) => {
+  if (typeof window.gtag === 'function') {
+    window.gtag('event', 'click_social', {
+      event_category: 'Social',
+      event_label: platform,
+    });
+  }
+};
 </script>
 
 <template>
@@ -69,6 +78,7 @@ const navTo = (page) => {
             href="https://discord.gg/ZeNg6cdPbj"
             target="_blank"
             rel="noopener noreferrer"
+            @click="trackClick('Discord')"
             class="hidden sm:flex items-center justify-center gap-2 overflow-hidden rounded h-10 px-6 bg-primary hover:bg-primary-dark transition-all text-white text-xs font-bold uppercase tracking-widest shadow-[0_0_15px_rgba(212, 17, 33, 0.3)] hover:shadow-[0_0_25px_rgba(212, 17, 33, 0.6)]"
           >
             <span>Join</span>
@@ -117,6 +127,7 @@ const navTo = (page) => {
         href="https://discord.gg/ZeNg6cdPbj"
         target="_blank"
         rel="noopener noreferrer"
+        @click="trackClick('Discord')"
         class="flex items-center gap-2 text-primary text-xs font-bold uppercase tracking-widest mt-2"
       >
         <span>Join Discord</span>

@@ -3,6 +3,15 @@ import HeroSection from "../components/HeroSection.vue";
 
 const emit = defineEmits(["navigate"]);
 
+const trackClick = (platform) => {
+  if (typeof window.gtag === 'function') {
+    window.gtag('event', 'click_social', {
+      event_category: 'Social',
+      event_label: platform,
+    });
+  }
+};
+
 const navTo = (page) => {
   emit("navigate", page);
 };
@@ -310,6 +319,7 @@ const navTo = (page) => {
             href="https://discord.gg/ZeNg6cdPbj"
             target="_blank"
             rel="noopener noreferrer"
+            @click="trackClick('Discord')"
             class="w-full h-14 bg-primary hover:bg-primary-dark text-white font-bold uppercase tracking-widest rounded transition-all shadow-lg hover:shadow-primary/40 flex items-center justify-center gap-3"
           >
             <span>Join our Discord</span>
@@ -321,6 +331,7 @@ const navTo = (page) => {
               href="https://www.instagram.com/att.larp/"
               target="_blank"
               rel="noopener noreferrer"
+              @click="trackClick('Instagram')"
               class="text-white hover:text-primary transition-colors"
             >
               <svg viewBox="0 0 24 24" fill="currentColor" class="w-8 h-8">
@@ -334,6 +345,7 @@ const navTo = (page) => {
               href="https://www.facebook.com/att.larp"
               target="_blank"
               rel="noopener noreferrer"
+              @click="trackClick('Facebook')"
               class="text-white hover:text-primary transition-colors"
             >
               <svg viewBox="0 0 24 24" fill="currentColor" class="w-8 h-8">
@@ -347,6 +359,7 @@ const navTo = (page) => {
               href="https://www.tiktok.com/@att.larp"
               target="_blank"
               rel="noopener noreferrer"
+              @click="trackClick('TikTok')"
               class="text-white hover:text-primary transition-colors"
             >
               <svg viewBox="0 0 24 24" fill="currentColor" class="w-8 h-8">
