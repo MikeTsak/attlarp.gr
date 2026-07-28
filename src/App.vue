@@ -2,6 +2,7 @@
 import { ref, computed } from "vue";
 import NavBar from "./components/NavBar.vue";
 import FooterSection from "./components/FooterSection.vue";
+import CookieConsent from "./components/CookieConsent.vue";
 
 // Import Pages
 import Home from "./pages/Home.vue";
@@ -30,5 +31,6 @@ const switchView = (viewName) => {
     </div>
 
     <FooterSection @navigate="switchView" />
+    <CookieConsent />
   </main>
 </template>
