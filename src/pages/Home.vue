@@ -328,7 +328,7 @@ const navTo = (page) => {
 
           <div class="flex items-center justify-center gap-8">
             <a
-              href="https://www.instagram.com/att.larp/"
+              href="https://www.instagram.com/attlarp.gr/"
               target="_blank"
               rel="noopener noreferrer"
               @click="trackClick('Instagram')"
