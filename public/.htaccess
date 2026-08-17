@@ -1,0 +1,79 @@
+# ============================================================
+# attlarp.gr — Apache config for the Vue Router (history mode) SPA
+# ============================================================
+
+# ---- HTTPS + canonical host (www -> apex) ----
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # Force HTTPS
+  RewriteCond %{HTTPS} off
+  RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+  # Force apex domain (www.attlarp.gr -> attlarp.gr) — remove this block if you want www as canonical instead
+  RewriteCond %{HTTP_HOST} ^www\.attlarp\.gr$ [NC]
+  RewriteRule ^ https://attlarp.gr%{REQUEST_URI} [L,R=301]
+</IfModule>
+
+# ---- SPA fallback for Vue Router history mode ----
+# Real files/directories (JS, CSS, images, robots.txt, sitemap.xml, etc.) are served as-is.
+# Everything else (e.g. /gallery, /setting, /storytellers) falls back to index.html
+# so vue-router can render the matching route client-side.
+<IfModule mod_rewrite.c>
+  RewriteBase /
+  RewriteCond %{REQUEST_FILENAME} -f [OR]
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteRule ^ - [L]
+  RewriteRule ^ index.html [L]
+</IfModule>
+
+# ---- Correct MIME types (avoids blank-page/module-load failures on some Apache setups) ----
+<IfModule mod_mime.c>
+  AddType application/javascript .js .mjs
+  AddType application/json .json .webmanifest
+  AddType image/svg+xml .svg
+  AddType font/woff2 .woff2
+  AddType image/webp .webp
+</IfModule>
+
+# ---- Compression ----
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css text/javascript application/javascript application/json image/svg+xml
+</IfModule>
+
+# ---- Caching ----
+<IfModule mod_expires.c>
+  ExpiresActive On
+
+  # Hashed, immutable build assets (Vite fingerprints filenames) — cache long-term
+  <FilesMatch "\.(?:js|mjs|css|woff2)$">
+    ExpiresDefault "access plus 1 year"
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+
+  # Images — cache, but shorter, in case assets are swapped without a filename change
+  <FilesMatch "\.(?:png|jpe?g|gif|webp|ico|svg)$">
+    ExpiresDefault "access plus 1 month"
+  </FilesMatch>
+
+  # index.html must always revalidate so deploys show up immediately
+  <FilesMatch "^index\.html$">
+    ExpiresDefault "access plus 0 seconds"
+    Header set Cache-Control "no-cache, must-revalidate"
+  </FilesMatch>
+
+  # robots.txt / sitemap.xml — short cache so SEO changes propagate quickly
+  <FilesMatch "^(robots\.txt|sitemap\.xml)$">
+    ExpiresDefault "access plus 1 hour"
+  </FilesMatch>
+</IfModule>
+
+# ---- Security / trust headers ----
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>
+
+# ---- Prevent directory listing ----
+Options -Indexes
