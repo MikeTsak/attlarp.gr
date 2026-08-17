@@ -1,5 +1,13 @@
 <script setup>
 import { ref, onMounted } from 'vue';
+import { useSeo } from '../composables/useSeo';
+
+useSeo({
+  title: "Gallery: The Archives",
+  description:
+    "Browse photos from Athens Through Time LARP events — the Vampire: The Masquerade chronicle set among the Camarilla courts and Anarch riots of Athens, Greece.",
+  path: "/gallery",
+});
 
 const events = ref([]);
 const selectedEvent = ref(null);

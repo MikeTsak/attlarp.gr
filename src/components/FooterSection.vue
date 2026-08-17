@@ -36,19 +36,19 @@ const trackClick = (platform) => {
           </h4>
           <ul class="space-y-3 text-sm">
             <li>
-              <a href="#" @click.prevent="$emit('navigate', 'home')" class="text-gray-500 hover:text-white transition-colors block">Home</a>
+              <RouterLink to="/" class="text-gray-500 hover:text-white transition-colors block">Home</RouterLink>
             </li>
             <li>
-              <a href="#" @click.prevent="$emit('navigate', 'setting')" class="text-gray-500 hover:text-white transition-colors block">The Setting</a>
+              <RouterLink to="/setting" class="text-gray-500 hover:text-white transition-colors block">The Setting</RouterLink>
             </li>
             <li>
-              <a href="#" @click.prevent="$emit('navigate', 'storytellers')" class="text-gray-500 hover:text-white transition-colors block">Storytellers</a>
+              <RouterLink to="/storytellers" class="text-gray-500 hover:text-white transition-colors block">Storytellers</RouterLink>
             </li>
             <li>
-              <a href="#" @click.prevent="$emit('navigate', 'gallery')" class="text-gray-500 hover:text-white transition-colors block">Gallery</a>
+              <RouterLink to="/gallery" class="text-gray-500 hover:text-white transition-colors block">Gallery</RouterLink>
             </li>
             <li>
-              <a href="https://portal.attlarp.gr" target="_blank" class="text-gray-500 hover:text-white transition-colors block">Portal</a>
+              <a href="https://portal.attlarp.gr" target="_blank" rel="noopener" class="text-gray-500 hover:text-white transition-colors block">Portal</a>
             </li>
           </ul>
         </div>

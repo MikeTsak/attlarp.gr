@@ -1,5 +1,4 @@
 <script setup>
-defineEmits(["navigate"]);
 </script>
 
 <template>
@@ -48,13 +47,12 @@ defineEmits(["navigate"]);
         >
           Join the Chronicle
         </a>
-        <a
-          href="#"
-          @click.prevent="$emit('navigate', 'setting')"
+        <RouterLink
+          to="/setting"
           class="flex items-center justify-center min-w-[180px] rounded h-12 px-8 bg-transparent border border-white/20 hover:border-primary hover:text-primary text-white font-bold uppercase tracking-widest transition-all backdrop-blur-sm cursor-pointer"
         >
           The Lore
-        </a>
+        </RouterLink>
       </div>
     </div>
   </header>

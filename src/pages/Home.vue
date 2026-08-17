@@ -1,7 +1,16 @@
 <script setup>
+import { useRouter } from "vue-router";
 import HeroSection from "../components/HeroSection.vue";
+import { useSeo } from "../composables/useSeo";
 
-const emit = defineEmits(["navigate"]);
+const router = useRouter();
+
+useSeo({
+  title: "Athens Through Time | A Vampire: The Masquerade LARP",
+  description:
+    "An immersive World of Darkness chronicle set in Athens, Greece. Live the duality of Modern Nights and Historical Echoes in a Vampire: The Masquerade V5 LARP built on the 3:1 cycle.",
+  path: "",
+});
 
 const trackClick = (platform) => {
   if (typeof window.gtag === 'function') {
@@ -13,13 +22,14 @@ const trackClick = (platform) => {
 };
 
 const navTo = (page) => {
-  emit("navigate", page);
+  const routes = { home: "/", setting: "/setting", gallery: "/gallery", storytellers: "/storytellers" };
+  router.push(routes[page] || "/");
 };
 </script>
 
 <template>
   <div class="bg-background-dark text-white">
-    <HeroSection @navigate="navTo"/>
+    <HeroSection />
 
     <section
       class="py-24 px-4 md:px-10 lg:px-40 bg-background-dark border-y border-[#39282a]"

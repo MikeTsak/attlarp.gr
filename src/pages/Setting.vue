@@ -1,5 +1,12 @@
 <script setup>
-// No script logic needed for this static page
+import { useSeo } from "../composables/useSeo";
+
+useSeo({
+  title: "The Setting: Blood & Heritage",
+  description:
+    "Discover the 3:1 cycle of Athens Through Time: three Modern Nights sessions of V5 Camarilla and Anarch politics, followed by a Historical Echo session played as your character's Ancestor.",
+  path: "/setting",
+});
 </script>
 
 <template>

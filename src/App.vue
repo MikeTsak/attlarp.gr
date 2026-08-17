@@ -1,36 +1,18 @@
 <script setup>
-import { ref, computed } from "vue";
 import NavBar from "./components/NavBar.vue";
 import FooterSection from "./components/FooterSection.vue";
 import CookieConsent from "./components/CookieConsent.vue";
-
-// Import Pages
-import Home from "./pages/Home.vue";
-import Setting from "./pages/Setting.vue";
-import Gallery from "./pages/Gallery.vue";
-import Storytellers from "./pages/Storytellers.vue";
-
-const currentView = ref("home");
-
-// Simple function to switch views
-const switchView = (viewName) => {
-  currentView.value = viewName;
-  window.scrollTo(0, 0);
-};
 </script>
 
 <template>
   <main class="bg-background-dark min-h-screen flex flex-col">
-    <NavBar @navigate="switchView" />
+    <NavBar />
 
     <div class="flex-grow">
-      <Home v-if="currentView === 'home'" @navigate="switchView" />
-      <Setting v-if="currentView === 'setting'" @navigate="switchView" />
-      <Gallery v-if="currentView === 'gallery'" @navigate="switchView" />
-      <Storytellers v-if="currentView === 'storytellers'" @navigate="switchView" />
+      <RouterView />
     </div>
 
-    <FooterSection @navigate="switchView" />
+    <FooterSection />
     <CookieConsent />
   </main>
 </template>

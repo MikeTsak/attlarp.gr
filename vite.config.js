@@ -5,9 +5,9 @@ import vueDevTools from 'vite-plugin-vue-devtools'
 
 // https://vite.dev/config/
 export default defineConfig({
-  // Set the base to './' to ensure assets are loaded using relative paths.
-  // This prevents 404 and MIME type errors on deployment.
-  base: './',
+  // Absolute base so asset URLs resolve correctly on deep routes (e.g. /gallery),
+  // not just from the root. Requires the host to rewrite unmatched paths to index.html.
+  base: '/',
   plugins: [
     vue(),
     vueDevTools(),

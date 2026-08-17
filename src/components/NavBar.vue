@@ -2,10 +2,8 @@
 import { ref } from "vue";
 
 const isMenuOpen = ref(false);
-const emit = defineEmits(["navigate"]);
 
-const navTo = (page) => {
-  emit("navigate", page);
+const closeMenu = () => {
   isMenuOpen.value = false;
 };
 
@@ -23,9 +21,8 @@ const trackClick = (platform) => {
   <nav class="sticky top-0 z-50 w-full border-b border-[#39282a] bg-[#181112]/95 backdrop-blur-md">
     <div class="px-4 md:px-10 lg:px-20 flex justify-center">
       <div class="flex h-16 w-full max-w-[1400px] items-center justify-between">
-        <a
-          @click.prevent="navTo('home')"
-          href="#"
+        <RouterLink
+          to="/"
           class="flex items-center gap-3 text-white hover:text-primary transition-colors cursor-pointer group"
         >
           <img
@@ -36,37 +33,38 @@ const trackClick = (platform) => {
           <h2 class="text-lg font-bold uppercase tracking-widest hidden sm:block">
             Athens Through Time
           </h2>
-        </a>
+        </RouterLink>
 
         <div class="hidden lg:flex flex-1 justify-center items-center gap-8">
-          <button
-            @click="navTo('home')"
+          <RouterLink
+            to="/"
             class="text-xs font-bold hover:text-primary text-white uppercase tracking-[0.2em] transition-colors"
           >
             Home
-          </button>
-          <button
-            @click="navTo('setting')"
+          </RouterLink>
+          <RouterLink
+            to="/setting"
             class="text-xs font-bold hover:text-primary text-white uppercase tracking-[0.2em] transition-colors"
           >
             The Setting
-          </button>
-          <button
-            @click="navTo('storytellers')"
+          </RouterLink>
+          <RouterLink
+            to="/storytellers"
             class="text-xs font-bold hover:text-primary text-white uppercase tracking-[0.2em] transition-colors"
           >
             Storytellers
-          </button>
-          <button
-            @click="navTo('gallery')"
+          </RouterLink>
+          <RouterLink
+            to="/gallery"
             class="text-xs font-bold hover:text-primary text-white uppercase tracking-[0.2em] transition-colors"
           >
             Gallery
-          </button>
+          </RouterLink>
 
           <a
             href="https://portal.attlarp.gr"
             target="_blank"
+            rel="noopener"
             class="text-xs font-bold text-primary hover:text-white uppercase tracking-[0.2em] transition-colors border-b border-transparent hover:border-primary"
           >
             Portal
@@ -84,7 +82,7 @@ const trackClick = (platform) => {
             <span>Join</span>
             <img src="/img/discord.webp" alt="Discord" class="h-4 w-4 object-contain" />
           </a>
-          <button class="lg:hidden text-white" @click="isMenuOpen = !isMenuOpen">
+          <button class="lg:hidden text-white" @click="isMenuOpen = !isMenuOpen" aria-label="Toggle navigation menu">
             <span class="material-symbols-outlined">menu</span>
           </button>
         </div>
@@ -95,30 +93,22 @@ const trackClick = (platform) => {
       v-if="isMenuOpen"
       class="lg:hidden bg-[#181112] border-b border-[#39282a] p-4 flex flex-col gap-4 items-center shadow-2xl"
     >
-      <button @click="navTo('home')" class="text-white text-xs font-bold uppercase tracking-widest">
+      <RouterLink to="/" @click="closeMenu" class="text-white text-xs font-bold uppercase tracking-widest">
         Home
-      </button>
-      <button
-        @click="navTo('setting')"
-        class="text-white text-xs font-bold uppercase tracking-widest"
-      >
+      </RouterLink>
+      <RouterLink to="/setting" @click="closeMenu" class="text-white text-xs font-bold uppercase tracking-widest">
         Setting
-      </button>
-      <button
-        @click="navTo('storytellers')"
-        class="text-white text-xs font-bold uppercase tracking-widest"
-      >
+      </RouterLink>
+      <RouterLink to="/storytellers" @click="closeMenu" class="text-white text-xs font-bold uppercase tracking-widest">
         Storytellers
-      </button>
-      <button
-        @click="navTo('gallery')"
-        class="text-white text-xs font-bold uppercase tracking-widest"
-      >
+      </RouterLink>
+      <RouterLink to="/gallery" @click="closeMenu" class="text-white text-xs font-bold uppercase tracking-widest">
         Gallery
-      </button>
+      </RouterLink>
       <a
         href="https://portal.attlarp.gr"
         target="_blank"
+        rel="noopener"
         class="text-primary text-xs font-bold uppercase tracking-widest"
       >
         Portal

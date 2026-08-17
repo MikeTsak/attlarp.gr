@@ -1,5 +1,30 @@
 <script setup>
-// No script logic needed for static content
+import { useSeo, SITE_URL } from "../composables/useSeo";
+
+useSeo({
+  title: "The Storytellers",
+  description:
+    "Meet the Storytellers behind Athens Through Time: ST Kyriakos and ST Mike, running a V5 Vampire: The Masquerade chronicle set in Athens, Greece.",
+  path: "/storytellers",
+  jsonLd: {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    itemListElement: [
+      {
+        "@type": "Person",
+        name: "ST Kyriakos",
+        jobTitle: "Storyteller, Politics Master, PR Specialist",
+        url: `${SITE_URL}/storytellers`,
+      },
+      {
+        "@type": "Person",
+        name: "ST Mike",
+        jobTitle: "Storyteller, Occult Master, Tech Specialist",
+        url: `${SITE_URL}/storytellers`,
+      },
+    ],
+  },
+});
 </script>
 
 <template>
