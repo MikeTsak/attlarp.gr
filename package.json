@@ -9,7 +9,12 @@
     "preview": "vite preview",
     "lint": "run-s lint:*",
     "lint:oxlint": "oxlint . --fix",
-    "lint:eslint": "eslint . --fix --cache"
+    "lint:eslint": "eslint . --fix --cache",
+    "deploy": "vite build && node scripts/deploy.mjs",
+    "deploy:nobuild": "node scripts/deploy.mjs",
+    "deploy:dry": "node scripts/deploy.mjs --dry-run",
+    "deploy:force": "vite build && node scripts/deploy.mjs --force",
+    "deploy:rollback": "node scripts/deploy.mjs --rollback"
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^7.2.0",
@@ -25,6 +30,8 @@
     "@eslint/js": "^9.39.2",
     "@vitejs/plugin-vue": "^6.0.3",
     "autoprefixer": "^10.4.24",
+    "basic-ftp": "^6.2.1",
+    "cli-progress": "^3.12.0",
     "eslint": "^9.39.2",
     "eslint-plugin-oxlint": "~1.42.0",
     "eslint-plugin-vue": "~10.7.0",

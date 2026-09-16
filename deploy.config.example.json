@@ -1,0 +1,20 @@
+{
+  "_comment": "Copy this file to deploy.config.json and fill it in. deploy.config.json is gitignored, never commit real credentials. Used by scripts/deploy.mjs (npm run deploy / deploy:nobuild / deploy:dry). Any value can also be supplied as an env var of the same name in UPPER_SNAKE_CASE (such as FTP_PASSWORD) which takes priority over this file.",
+
+  "host": "attlarp.gr",
+  "port": 21,
+  "user": "attlarp",
+  "password": "",
+
+  "_secure": "FTPS mode. true = explicit FTPS on port 21 (recommended, Plesk default). \"implicit\" = implicit FTPS (usually port 990). false = plain unencrypted FTP.",
+  "secure": true,
+
+  "_tlsStrict": "Verify FTP TLS certificate. Shared or Plesk hosts often present certificates that do not strictly match the hostname, leave false unless endpoint has a valid certificate.",
+  "tlsStrict": false,
+
+  "_remoteDir": "Remote directory relative to FTP root. \"/\" represents web root.",
+  "remoteDir": "/",
+
+  "_siteUrl": "Public site URL for post deployment verification ping.",
+  "siteUrl": "https://attlarp.gr/"
+}
