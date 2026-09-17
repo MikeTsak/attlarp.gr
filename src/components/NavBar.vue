@@ -1,11 +1,36 @@
 <script setup>
-import { ref } from "vue";
+import { ref, computed, onMounted, onUnmounted } from "vue";
+import { useRoute } from "vue-router";
 
+const route = useRoute();
 const isMenuOpen = ref(false);
+const isAboutOpen = ref(false);
+const isMobileAboutOpen = ref(false);
+const aboutDropdownRef = ref(null);
+
+const isAboutActive = computed(() => {
+  return route.path === "/what-is-larp" || route.path === "/what-is-vampire";
+});
 
 const closeMenu = () => {
   isMenuOpen.value = false;
+  isAboutOpen.value = false;
+  isMobileAboutOpen.value = false;
 };
+
+const handleClickOutside = (event) => {
+  if (aboutDropdownRef.value && !aboutDropdownRef.value.contains(event.target)) {
+    isAboutOpen.value = false;
+  }
+};
+
+onMounted(() => {
+  document.addEventListener("click", handleClickOutside);
+});
+
+onUnmounted(() => {
+  document.removeEventListener("click", handleClickOutside);
+});
 
 const trackClick = (platform) => {
   if (typeof window.gtag === 'function') {
@@ -42,6 +67,64 @@ const trackClick = (platform) => {
           >
             Home
           </RouterLink>
+
+          <!-- About Dropdown (Desktop) -->
+          <div
+            class="relative"
+            ref="aboutDropdownRef"
+            @mouseenter="isAboutOpen = true"
+            @mouseleave="isAboutOpen = false"
+          >
+            <button
+              @click="isAboutOpen = !isAboutOpen"
+              type="button"
+              class="flex items-center gap-1.5 text-xs font-bold uppercase tracking-[0.2em] transition-colors py-2"
+              :class="isAboutActive ? 'text-primary' : 'text-white hover:text-primary'"
+              aria-haspopup="true"
+              :aria-expanded="isAboutOpen"
+            >
+              <span>About</span>
+              <i
+                class="fa-solid fa-chevron-down text-[9px] transition-transform duration-200"
+                :class="{ 'rotate-180': isAboutOpen }"
+              ></i>
+            </button>
+
+            <transition
+              enter-active-class="transition duration-200 ease-out"
+              enter-from-class="transform scale-95 opacity-0 -translate-y-1"
+              enter-to-class="transform scale-100 opacity-100 translate-y-0"
+              leave-active-class="transition duration-150 ease-in"
+              leave-from-class="transform scale-100 opacity-100 translate-y-0"
+              leave-to-class="transform scale-95 opacity-0 -translate-y-1"
+            >
+              <div
+                v-if="isAboutOpen"
+                class="absolute top-full left-1/2 -translate-x-1/2 mt-1 w-64 rounded-xl bg-[#181112] border border-[#39282a] shadow-[0_10px_30px_rgba(0,0,0,0.85)] p-2 z-50 flex flex-col gap-1 backdrop-blur-md"
+              >
+                <RouterLink
+                  to="/what-is-larp"
+                  @click="isAboutOpen = false"
+                  class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-xs font-bold uppercase tracking-wider text-gray-300 hover:text-white hover:bg-surface-dark transition-all"
+                  :class="{ 'text-primary bg-primary/10': route.path === '/what-is-larp' }"
+                >
+                  <i class="fa-solid fa-masks-theater text-primary text-sm w-4 text-center"></i>
+                  <span>What is LARP?</span>
+                </RouterLink>
+
+                <RouterLink
+                  to="/what-is-vampire"
+                  @click="isAboutOpen = false"
+                  class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-xs font-bold uppercase tracking-wider text-gray-300 hover:text-white hover:bg-surface-dark transition-all"
+                  :class="{ 'text-primary bg-primary/10': route.path === '/what-is-vampire' }"
+                >
+                  <i class="fa-solid fa-droplet text-primary text-sm w-4 text-center"></i>
+                  <span>What is Vampire?</span>
+                </RouterLink>
+              </div>
+            </transition>
+          </div>
+
           <RouterLink
             to="/setting"
             class="text-xs font-bold hover:text-primary text-white uppercase tracking-[0.2em] transition-colors"
@@ -89,6 +172,7 @@ const trackClick = (platform) => {
       </div>
     </div>
 
+    <!-- Mobile Drawer -->
     <div
       v-if="isMenuOpen"
       class="lg:hidden bg-[#181112] border-b border-[#39282a] p-4 flex flex-col gap-4 items-center shadow-2xl"
@@ -96,6 +180,45 @@ const trackClick = (platform) => {
       <RouterLink to="/" @click="closeMenu" class="text-white text-xs font-bold uppercase tracking-widest">
         Home
       </RouterLink>
+
+      <!-- Mobile About Accordion -->
+      <div class="w-full flex flex-col items-center">
+        <button
+          @click="isMobileAboutOpen = !isMobileAboutOpen"
+          class="flex items-center gap-2 text-white text-xs font-bold uppercase tracking-widest py-1"
+          :class="{ 'text-primary': isAboutActive }"
+        >
+          <span>About</span>
+          <i
+            class="fa-solid fa-chevron-down text-[10px] transition-transform duration-200"
+            :class="{ 'rotate-180': isMobileAboutOpen }"
+          ></i>
+        </button>
+        <div
+          v-if="isMobileAboutOpen"
+          class="flex flex-col gap-3 items-center pt-3 pb-2 w-full bg-surface-dark/60 rounded-lg mt-2 border border-[#39282a]"
+        >
+          <RouterLink
+            to="/what-is-larp"
+            @click="closeMenu"
+            class="text-gray-300 hover:text-white text-[11px] font-bold uppercase tracking-widest flex items-center gap-2"
+            :class="{ 'text-primary': route.path === '/what-is-larp' }"
+          >
+            <i class="fa-solid fa-masks-theater text-xs text-primary"></i>
+            What is LARP?
+          </RouterLink>
+          <RouterLink
+            to="/what-is-vampire"
+            @click="closeMenu"
+            class="text-gray-300 hover:text-white text-[11px] font-bold uppercase tracking-widest flex items-center gap-2"
+            :class="{ 'text-primary': route.path === '/what-is-vampire' }"
+          >
+            <i class="fa-solid fa-droplet text-xs text-primary"></i>
+            What is Vampire?
+          </RouterLink>
+        </div>
+      </div>
+
       <RouterLink to="/setting" @click="closeMenu" class="text-white text-xs font-bold uppercase tracking-widest">
         Setting
       </RouterLink>

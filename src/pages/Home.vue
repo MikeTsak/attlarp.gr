@@ -22,7 +22,14 @@ const trackClick = (platform) => {
 };
 
 const navTo = (page) => {
-  const routes = { home: "/", setting: "/setting", gallery: "/gallery", storytellers: "/storytellers" };
+  const routes = {
+    home: "/",
+    setting: "/setting",
+    gallery: "/gallery",
+    storytellers: "/storytellers",
+    larp: "/what-is-larp",
+    vtm: "/what-is-vampire",
+  };
   router.push(routes[page] || "/");
 };
 </script>
@@ -36,20 +43,24 @@ const navTo = (page) => {
       id="welcome"
     >
       <div class="max-w-[1200px] mx-auto grid lg:grid-cols-3 gap-12">
-        <div @click="navTo('setting')" class="space-y-6 cursor-pointer group">
+        <div @click="navTo('larp')" class="space-y-6 cursor-pointer group">
           <div class="flex items-center gap-3 text-primary">
             <span class="material-symbols-outlined">theater_comedy</span>
             <h3 class="text-xl font-bold uppercase tracking-wider group-hover:text-white transition-colors">What is LARP?</h3>
           </div>
           <p class="text-gray-400 leading-relaxed group-hover:text-gray-300 transition-colors">
-            Live Action Role Playing (LARP) is a form of collaborative storytelling. You don't just
-            describe your character's actions; you embody them. Dressed in costume, you interact
-            with other players in real-time, making decisions that influence the shared narrative in
+            Live Action Role Playing (LARP) is a form of collaborative storytelling. You do not just
+            describe your character actions, you embody them. Dressed in costume, you interact
+            with other players in real time, making decisions that influence the shared narrative in
             an immersive environment.
           </p>
+          <div class="text-xs text-primary font-bold uppercase tracking-widest flex items-center gap-2 group-hover:translate-x-1 transition-transform">
+            <span>Learn More</span>
+            <i class="fa-solid fa-arrow-right text-[10px]"></i>
+          </div>
         </div>
 
-        <div @click="navTo('setting')" class="space-y-6 cursor-pointer group">
+        <div @click="navTo('vtm')" class="space-y-6 cursor-pointer group">
           <div class="flex items-center gap-3 text-primary">
             <span class="material-symbols-outlined">bloodtype</span>
             <h3 class="text-xl font-bold uppercase tracking-wider group-hover:text-white transition-colors">What is VTM?</h3>
@@ -60,6 +71,10 @@ const navTo = (page) => {
             undead. In the 5th Edition (V5), the hunger is a constant companion, driving every
             choice you make.
           </p>
+          <div class="text-xs text-primary font-bold uppercase tracking-widest flex items-center gap-2 group-hover:translate-x-1 transition-transform">
+            <span>Learn More</span>
+            <i class="fa-solid fa-arrow-right text-[10px]"></i>
+          </div>
         </div>
 
         <div @click="navTo('setting')" class="space-y-6 cursor-pointer group">
@@ -69,10 +84,14 @@ const navTo = (page) => {
           </div>
           <p class="text-gray-400 leading-relaxed group-hover:text-gray-300 transition-colors">
             This is a unique chronicle set in the cradle of civilization. Athens is a city where
-            ancient gods have been replaced by eternal monsters. Here, the weight of history isn't
-            just a metaphor—it's a mechanic. Our story spans generations, connecting the modern
+            ancient gods have been replaced by eternal monsters. Here, the weight of history is not
+            just a metaphor, it is a mechanic. Our story spans generations, connecting the modern
             nights to the whispers of the past.
           </p>
+          <div class="text-xs text-primary font-bold uppercase tracking-widest flex items-center gap-2 group-hover:translate-x-1 transition-transform">
+            <span>Explore Setting</span>
+            <i class="fa-solid fa-arrow-right text-[10px]"></i>
+          </div>
         </div>
       </div>
     </section>

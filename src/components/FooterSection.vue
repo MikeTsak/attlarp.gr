@@ -39,6 +39,12 @@ const trackClick = (platform) => {
               <RouterLink to="/" class="text-gray-500 hover:text-white transition-colors block">Home</RouterLink>
             </li>
             <li>
+              <RouterLink to="/what-is-larp" class="text-gray-500 hover:text-white transition-colors block">What is LARP?</RouterLink>
+            </li>
+            <li>
+              <RouterLink to="/what-is-vampire" class="text-gray-500 hover:text-white transition-colors block">What is Vampire?</RouterLink>
+            </li>
+            <li>
               <RouterLink to="/setting" class="text-gray-500 hover:text-white transition-colors block">The Setting</RouterLink>
             </li>
             <li>
