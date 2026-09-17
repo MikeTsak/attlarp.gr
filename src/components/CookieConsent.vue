@@ -1,16 +1,15 @@
 <template>
   <div v-if="show" class="fixed bottom-4 left-4 z-[100] bg-[#1a1112] border border-gray-700 rounded-lg shadow-xl p-4 max-w-[320px] text-white">
-    <h3 class="font-bold text-base mb-1">Cookies & Privacy</h3>
+    <h3 class="font-bold text-base mb-1">{{ t('cookies.title') }}</h3>
     <p class="text-xs text-gray-300 mb-3 leading-relaxed">
-      We use cookies to analyze traffic and improve your experience. 
-      By clicking "Accept", you consent to our use of cookies.
+      {{ t('cookies.description') }}
     </p>
     <div class="flex gap-2 justify-end">
       <button @click="decline" class="px-3 py-1.5 text-xs border border-gray-600 rounded hover:bg-gray-800 transition-colors">
-        Decline
+        {{ t('cookies.decline') }}
       </button>
       <button @click="accept" class="px-3 py-1.5 text-xs bg-red-700 hover:bg-red-600 font-bold rounded transition-colors">
-        Accept
+        {{ t('cookies.accept') }}
       </button>
     </div>
   </div>
@@ -18,7 +17,9 @@
 
 <script setup>
 import { ref, onMounted } from 'vue';
+import { useI18n } from '../composables/useI18n';
 
+const { t } = useI18n();
 const show = ref(false);
 
 const updateConsent = (granted) => {

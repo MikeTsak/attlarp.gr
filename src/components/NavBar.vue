@@ -1,8 +1,10 @@
 <script setup>
 import { ref, computed, onMounted, onUnmounted } from "vue";
 import { useRoute } from "vue-router";
+import { useI18n } from "../composables/useI18n";
 
 const route = useRoute();
+const { t, locale, setLocale, toggleLocale, isGreek, isEnglish } = useI18n();
 const isMenuOpen = ref(false);
 const isAboutOpen = ref(false);
 const isMobileAboutOpen = ref(false);
@@ -65,7 +67,7 @@ const trackClick = (platform) => {
             to="/"
             class="text-xs font-bold hover:text-primary text-white uppercase tracking-[0.2em] transition-colors"
           >
-            Home
+            {{ t('nav.home') }}
           </RouterLink>
 
           <!-- About Dropdown (Desktop) -->
@@ -83,7 +85,7 @@ const trackClick = (platform) => {
               aria-haspopup="true"
               :aria-expanded="isAboutOpen"
             >
-              <span>About</span>
+              <span>{{ t('nav.about') }}</span>
               <i
                 class="fa-solid fa-chevron-down text-[9px] transition-transform duration-200"
                 :class="{ 'rotate-180': isAboutOpen }"
@@ -109,7 +111,7 @@ const trackClick = (platform) => {
                   :class="{ 'text-primary bg-primary/10': route.path === '/what-is-larp' }"
                 >
                   <i class="fa-solid fa-masks-theater text-primary text-sm w-4 text-center"></i>
-                  <span>What is LARP?</span>
+                  <span>{{ t('nav.whatIsLarp') }}</span>
                 </RouterLink>
 
                 <RouterLink
@@ -119,7 +121,7 @@ const trackClick = (platform) => {
                   :class="{ 'text-primary bg-primary/10': route.path === '/what-is-vampire' }"
                 >
                   <i class="fa-solid fa-droplet text-primary text-sm w-4 text-center"></i>
-                  <span>What is Vampire?</span>
+                  <span>{{ t('nav.whatIsVampire') }}</span>
                 </RouterLink>
               </div>
             </transition>
@@ -129,19 +131,19 @@ const trackClick = (platform) => {
             to="/setting"
             class="text-xs font-bold hover:text-primary text-white uppercase tracking-[0.2em] transition-colors"
           >
-            The Setting
+            {{ t('nav.setting') }}
           </RouterLink>
           <RouterLink
             to="/storytellers"
             class="text-xs font-bold hover:text-primary text-white uppercase tracking-[0.2em] transition-colors"
           >
-            Storytellers
+            {{ t('nav.storytellers') }}
           </RouterLink>
           <RouterLink
             to="/gallery"
             class="text-xs font-bold hover:text-primary text-white uppercase tracking-[0.2em] transition-colors"
           >
-            Gallery
+            {{ t('nav.gallery') }}
           </RouterLink>
 
           <a
@@ -150,11 +152,51 @@ const trackClick = (platform) => {
             rel="noopener"
             class="text-xs font-bold text-primary hover:text-white uppercase tracking-[0.2em] transition-colors border-b border-transparent hover:border-primary"
           >
-            Portal
+            {{ t('nav.portal') }}
           </a>
         </div>
 
-        <div class="flex items-center gap-4">
+        <div class="flex items-center gap-3 md:gap-4">
+          <!-- Desktop Language Switcher with Flags -->
+          <div class="hidden sm:flex items-center p-0.5 rounded-lg border border-[#39282a] bg-surface-dark/90 backdrop-blur-sm">
+            <button
+              type="button"
+              @click="setLocale('en')"
+              class="flex items-center gap-1.5 px-2.5 py-1 rounded-md text-[11px] font-bold tracking-wider transition-all cursor-pointer"
+              :class="isEnglish ? 'bg-primary text-white shadow-sm' : 'text-gray-400 hover:text-white'"
+              title="English"
+              aria-label="Switch to English"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 30" class="w-4 h-2.5 rounded-[2px] shadow-xs shrink-0">
+                <clipPath id="uk-clip-desktop"><rect width="60" height="30"/></clipPath>
+                <g clip-path="url(#uk-clip-desktop)">
+                  <path d="M0 0h60v30H0z" fill="#012169"/>
+                  <path d="m0 0 60 30m0-30L0 30" stroke="#fff" stroke-width="6"/>
+                  <path d="m0 0 30 15m30 15L30 15m0 0L0 30m30-15 30-15" stroke="#C8102E" stroke-width="2"/>
+                  <path d="M30 0v30M0 15h60" stroke="#fff" stroke-width="10"/>
+                  <path d="M30 0v30M0 15h60" stroke="#C8102E" stroke-width="6"/>
+                </g>
+              </svg>
+              <span>EN</span>
+            </button>
+            <button
+              type="button"
+              @click="setLocale('el')"
+              class="flex items-center gap-1.5 px-2.5 py-1 rounded-md text-[11px] font-bold tracking-wider transition-all cursor-pointer"
+              :class="isGreek ? 'bg-primary text-white shadow-sm' : 'text-gray-400 hover:text-white'"
+              title="Ελληνικά"
+              aria-label="Αλλαγή σε Ελληνικά"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 27 18" class="w-4 h-2.5 rounded-[2px] shadow-xs shrink-0">
+                <rect width="27" height="18" fill="#0D5EAF"/>
+                <path d="M0 2h27v2H0zm0 4h27v2H0zm0 4h27v2H0zm0 4h27v2H0z" fill="#fff"/>
+                <rect width="10" height="10" fill="#0D5EAF"/>
+                <path d="M4 0h2v10H4zm-4 4h10v2H0z" fill="#fff"/>
+              </svg>
+              <span>ΕΛ</span>
+            </button>
+          </div>
+
           <a
             href="https://discord.gg/ZeNg6cdPbj"
             target="_blank"
@@ -162,7 +204,7 @@ const trackClick = (platform) => {
             @click="trackClick('Discord')"
             class="hidden sm:flex items-center justify-center gap-2 overflow-hidden rounded h-10 px-6 bg-primary hover:bg-primary-dark transition-all text-white text-xs font-bold uppercase tracking-widest shadow-[0_0_15px_rgba(212, 17, 33, 0.3)] hover:shadow-[0_0_25px_rgba(212, 17, 33, 0.6)]"
           >
-            <span>Join</span>
+            <span>{{ t('nav.join') }}</span>
             <img src="/img/discord.webp" alt="Discord" class="h-4 w-4 object-contain" />
           </a>
           <button class="lg:hidden text-white" @click="isMenuOpen = !isMenuOpen" aria-label="Toggle navigation menu">
@@ -177,8 +219,44 @@ const trackClick = (platform) => {
       v-if="isMenuOpen"
       class="lg:hidden bg-[#181112] border-b border-[#39282a] p-4 flex flex-col gap-4 items-center shadow-2xl"
     >
+      <!-- Mobile Language Switcher with Flags -->
+      <div class="flex items-center gap-2.5 pb-3 border-b border-[#39282a] w-full justify-center">
+        <button
+          type="button"
+          @click="setLocale('en')"
+          class="flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider transition-all cursor-pointer"
+          :class="isEnglish ? 'bg-primary text-white shadow-md' : 'text-gray-400 bg-surface-dark border border-[#39282a] hover:text-white'"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 30" class="w-4 h-2.5 rounded-[2px] shadow-xs shrink-0">
+            <clipPath id="uk-clip-mobile"><rect width="60" height="30"/></clipPath>
+            <g clip-path="url(#uk-clip-mobile)">
+              <path d="M0 0h60v30H0z" fill="#012169"/>
+              <path d="m0 0 60 30m0-30L0 30" stroke="#fff" stroke-width="6"/>
+              <path d="m0 0 30 15m30 15L30 15m0 0L0 30m30-15 30-15" stroke="#C8102E" stroke-width="2"/>
+              <path d="M30 0v30M0 15h60" stroke="#fff" stroke-width="10"/>
+              <path d="M30 0v30M0 15h60" stroke="#C8102E" stroke-width="6"/>
+            </g>
+          </svg>
+          <span>English</span>
+        </button>
+        <button
+          type="button"
+          @click="setLocale('el')"
+          class="flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider transition-all cursor-pointer"
+          :class="isGreek ? 'bg-primary text-white shadow-md' : 'text-gray-400 bg-surface-dark border border-[#39282a] hover:text-white'"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 27 18" class="w-4 h-2.5 rounded-[2px] shadow-xs shrink-0">
+            <rect width="27" height="18" fill="#0D5EAF"/>
+            <path d="M0 2h27v2H0zm0 4h27v2H0zm0 4h27v2H0zm0 4h27v2H0z" fill="#fff"/>
+            <rect width="10" height="10" fill="#0D5EAF"/>
+            <path d="M4 0h2v10H4zm-4 4h10v2H0z" fill="#fff"/>
+          </svg>
+          <span>Ελληνικά</span>
+        </button>
+      </div>
+
       <RouterLink to="/" @click="closeMenu" class="text-white text-xs font-bold uppercase tracking-widest">
-        Home
+        {{ t('nav.home') }}
       </RouterLink>
 
       <!-- Mobile About Accordion -->
@@ -188,7 +266,7 @@ const trackClick = (platform) => {
           class="flex items-center gap-2 text-white text-xs font-bold uppercase tracking-widest py-1"
           :class="{ 'text-primary': isAboutActive }"
         >
-          <span>About</span>
+          <span>{{ t('nav.about') }}</span>
           <i
             class="fa-solid fa-chevron-down text-[10px] transition-transform duration-200"
             :class="{ 'rotate-180': isMobileAboutOpen }"
@@ -205,7 +283,7 @@ const trackClick = (platform) => {
             :class="{ 'text-primary': route.path === '/what-is-larp' }"
           >
             <i class="fa-solid fa-masks-theater text-xs text-primary"></i>
-            What is LARP?
+            {{ t('nav.whatIsLarp') }}
           </RouterLink>
           <RouterLink
             to="/what-is-vampire"
@@ -214,19 +292,19 @@ const trackClick = (platform) => {
             :class="{ 'text-primary': route.path === '/what-is-vampire' }"
           >
             <i class="fa-solid fa-droplet text-xs text-primary"></i>
-            What is Vampire?
+            {{ t('nav.whatIsVampire') }}
           </RouterLink>
         </div>
       </div>
 
       <RouterLink to="/setting" @click="closeMenu" class="text-white text-xs font-bold uppercase tracking-widest">
-        Setting
+        {{ t('nav.setting') }}
       </RouterLink>
       <RouterLink to="/storytellers" @click="closeMenu" class="text-white text-xs font-bold uppercase tracking-widest">
-        Storytellers
+        {{ t('nav.storytellers') }}
       </RouterLink>
       <RouterLink to="/gallery" @click="closeMenu" class="text-white text-xs font-bold uppercase tracking-widest">
-        Gallery
+        {{ t('nav.gallery') }}
       </RouterLink>
       <a
         href="https://portal.attlarp.gr"
@@ -234,7 +312,7 @@ const trackClick = (platform) => {
         rel="noopener"
         class="text-primary text-xs font-bold uppercase tracking-widest"
       >
-        Portal
+        {{ t('nav.portal') }}
       </a>
       <a
         href="https://discord.gg/ZeNg6cdPbj"
@@ -243,7 +321,7 @@ const trackClick = (platform) => {
         @click="trackClick('Discord')"
         class="flex items-center gap-2 text-primary text-xs font-bold uppercase tracking-widest mt-2"
       >
-        <span>Join Discord</span>
+        <span>{{ t('nav.joinDiscord') }}</span>
         <img src="/img/discord.webp" alt="Discord" class="h-4 w-4 object-contain" />
       </a>
     </div>

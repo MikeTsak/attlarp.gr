@@ -1,10 +1,13 @@
 <script setup>
+import { computed } from "vue";
 import { useSeo } from "../composables/useSeo";
+import { useI18n } from "../composables/useI18n";
+
+const { t } = useI18n();
 
 useSeo({
-  title: "What is Vampire: The Masquerade : Athens Through Time",
-  description:
-    "An introduction to Vampire: The Masquerade V5. Athens Through Time is an official Vampire: The Masquerade licensed LARP through the Dark Pack agreement with Paradox Interactive.",
+  title: computed(() => t("seo.whatIsVampireTitle")),
+  description: computed(() => t("seo.whatIsVampireDesc")),
   path: "/what-is-vampire",
 });
 
@@ -39,27 +42,27 @@ const scrollToSection = (id) => {
                 class="inline-flex items-center gap-2 rounded-full bg-primary/20 px-4 py-1 text-xs font-bold uppercase tracking-[0.2em] text-primary border border-primary/40"
               >
                 <i class="fa-solid fa-droplet text-xs"></i>
-                World of Darkness : V5 Chronicle
+                {{ t('whatIsVampire.heroBadge1') }}
               </span>
               <span
                 class="inline-flex items-center gap-2 rounded-full bg-surface-dark px-4 py-1 text-xs font-bold uppercase tracking-widest text-gray-400 border border-[#39282a]"
               >
                 <i class="fa-solid fa-shield-halved text-primary text-xs"></i>
-                Personal & Political Horror
+                {{ t('whatIsVampire.heroBadge2') }}
               </span>
             </div>
 
             <h1
               class="text-white text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black leading-[0.88] tracking-tighter uppercase"
             >
-              What is <br />
-              <span class="text-primary text-shadow-glow">Vampire?</span>
+              {{ t('whatIsVampire.heroTitlePrefix') }} <br />
+              <span class="text-primary text-shadow-glow">{{ t('whatIsVampire.heroTitleSuffix') }}</span>
             </h1>
 
             <p
               class="text-gray-300 text-lg sm:text-xl font-light leading-relaxed border-l-4 border-primary pl-6 max-w-2xl"
             >
-              Vampire: The Masquerade is a chronicle of personal tragedy and high stakes politics. You portray an immortal predator caught between the memory of mortal warmth and the ravenous Beast that hungers beneath your flesh. In the nocturnal streets of Athens, blood is power, debts are eternal, and trust is fatal.
+              {{ t('whatIsVampire.heroLead') }}
             </p>
 
             <div class="flex flex-wrap gap-4 pt-2">
@@ -67,14 +70,14 @@ const scrollToSection = (id) => {
                 @click="scrollToSection('the-masquerade')"
                 class="flex cursor-pointer items-center justify-center gap-3 overflow-hidden rounded-lg h-14 px-8 bg-primary hover:bg-primary-dark transition-all text-white text-xs font-bold tracking-widest uppercase shadow-[0_0_25px_rgba(212,17,33,0.4)]"
               >
-                <span>The First Tradition</span>
+                <span>{{ t('whatIsVampire.traditionBtn') }}</span>
                 <i class="fa-solid fa-arrow-down text-xs"></i>
               </button>
               <RouterLink
                 to="/what-is-larp"
                 class="flex items-center justify-center gap-3 rounded-lg h-14 px-8 border border-[#39282a] hover:border-primary bg-surface-dark/80 hover:bg-surface-dark transition-all text-gray-300 hover:text-white text-xs font-bold tracking-widest uppercase"
               >
-                <span>What is LARP?</span>
+                <span>{{ t('whatIsVampire.larpBtn') }}</span>
                 <i class="fa-solid fa-chevron-right text-xs"></i>
               </RouterLink>
             </div>
@@ -96,10 +99,10 @@ const scrollToSection = (id) => {
               >
                 <div class="flex items-center gap-2 text-primary text-xs font-bold uppercase tracking-widest mb-1">
                   <i class="fa-solid fa-masks-theater text-xs"></i>
-                  <span>The Masquerade Veil</span>
+                  <span>{{ t('whatIsVampire.veilTag') }}</span>
                 </div>
                 <p class="text-xs text-gray-300 font-light leading-relaxed">
-                  "A Monster I Am, Lest A Monster I Become" : The central tragedy of Kindred unlife. Vampires maintain appearances of civility to hide the predator within from mortal eyes.
+                  {{ t('whatIsVampire.veilDesc') }}
                 </p>
               </div>
             </div>
@@ -119,13 +122,13 @@ const scrollToSection = (id) => {
           />
           <div class="space-y-2">
             <span class="text-xs font-bold uppercase tracking-[0.25em] text-primary block">
-              Official Licensing & Attribution
+              {{ t('whatIsVampire.licensingBadge') }}
             </span>
             <h3 class="text-lg sm:text-xl font-black uppercase text-white">
-              Athens Through Time is an official Vampire: The Masquerade licensed LARP through the Dark Pack
+              {{ t('whatIsVampire.licensingTitle') }}
             </h3>
             <p class="text-xs sm:text-sm text-gray-300 font-light max-w-3xl leading-relaxed">
-              Vampire: The Masquerade is created by <strong>Paradox Interactive AB</strong>. Athens Through Time is officially licensed and sanctioned under the <strong>Dark Pack</strong> agreement, bringing World of Darkness 5th Edition live action storytelling to life in Greece.
+              {{ t('whatIsVampire.licensingDesc') }}
             </p>
           </div>
         </div>
@@ -137,7 +140,7 @@ const scrollToSection = (id) => {
             rel="noopener noreferrer"
             class="flex items-center gap-2 px-6 py-3 rounded-lg border border-primary/40 hover:border-primary bg-primary/10 hover:bg-primary/20 text-white text-xs font-bold uppercase tracking-widest transition-all shadow-[0_0_15px_rgba(212,17,33,0.2)]"
           >
-            <span>Dark Pack Details</span>
+            <span>{{ t('whatIsVampire.darkPackBtn') }}</span>
             <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
           </a>
           <a
@@ -146,7 +149,7 @@ const scrollToSection = (id) => {
             rel="noopener noreferrer"
             class="flex items-center gap-2 px-6 py-3 rounded-lg border border-[#39282a] hover:border-gray-500 bg-surface-dark text-gray-300 hover:text-white text-xs font-bold uppercase tracking-widest transition-all"
           >
-            <span>World of Darkness</span>
+            <span>{{ t('whatIsVampire.wodBtn') }}</span>
             <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
           </a>
         </div>
@@ -158,13 +161,13 @@ const scrollToSection = (id) => {
       <div class="max-w-[1400px] mx-auto">
         <div class="text-center max-w-3xl mx-auto mb-16">
           <span class="text-primary text-xs font-bold uppercase tracking-[0.25em] block mb-2">
-            The Personal Horror
+            {{ t('whatIsVampire.struggleBadge') }}
           </span>
           <h2 class="text-white text-3xl sm:text-4xl md:text-5xl font-black uppercase tracking-tight">
-            The Eternal Struggle
+            {{ t('whatIsVampire.struggleTitle') }}
           </h2>
           <p class="text-text-muted text-sm sm:text-base mt-4 font-light">
-            Every vampire is locked in a desperate internal war. Immortality is not a gift, but a predatory curse demanding constant moral vigilance.
+            {{ t('whatIsVampire.struggleDesc') }}
           </p>
         </div>
 
@@ -175,13 +178,13 @@ const scrollToSection = (id) => {
               <span class="size-14 rounded-xl bg-primary/20 text-primary flex items-center justify-center text-2xl">
                 <i class="fa-solid fa-skull"></i>
               </span>
-              <h3 class="text-2xl font-black uppercase text-white">The Beast</h3>
+              <h3 class="text-2xl font-black uppercase text-white">{{ t('whatIsVampire.beastTitle') }}</h3>
               <p class="text-gray-400 text-sm leading-relaxed font-light">
-                The primordial parasite dwelling in every vampire's blood. The Beast cares nothing for philosophy, alliances, or remorse. It knows only Hunger, Fear of fire and the sun, and the instinct to dominate territory.
+                {{ t('whatIsVampire.beastDesc') }}
               </p>
             </div>
             <div class="pt-6 border-t border-[#39282a] text-xs font-bold uppercase tracking-widest text-primary">
-              The Savage Predator
+              {{ t('whatIsVampire.beastTag') }}
             </div>
           </div>
 
@@ -191,13 +194,13 @@ const scrollToSection = (id) => {
               <span class="size-14 rounded-xl bg-primary/20 text-primary flex items-center justify-center text-2xl">
                 <i class="fa-solid fa-droplet"></i>
               </span>
-              <h3 class="text-2xl font-black uppercase text-white">The Hunger</h3>
+              <h3 class="text-2xl font-black uppercase text-white">{{ t('whatIsVampire.hungerTitle') }}</h3>
               <p class="text-gray-400 text-sm leading-relaxed font-light">
-                In V5, blood is not a resource pool you track like gold: it is an agonizing addiction. As your Hunger rises, your control slips. The scent of a bleeding mortal can instantly throw you into uncontrollable frenzy.
+                {{ t('whatIsVampire.hungerDesc') }}
               </p>
             </div>
             <div class="pt-6 border-t border-[#39282a] text-xs font-bold uppercase tracking-widest text-primary">
-              The Ceaseless Urge
+              {{ t('whatIsVampire.hungerTag') }}
             </div>
           </div>
 
@@ -207,13 +210,13 @@ const scrollToSection = (id) => {
               <span class="size-14 rounded-xl bg-primary/20 text-primary flex items-center justify-center text-2xl">
                 <i class="fa-solid fa-heart-crack"></i>
               </span>
-              <h3 class="text-2xl font-black uppercase text-white">Humanity</h3>
+              <h3 class="text-2xl font-black uppercase text-white">{{ t('whatIsVampire.humanityTitle') }}</h3>
               <p class="text-gray-400 text-sm leading-relaxed font-light">
-                The measure of your conscience and connection to mortal compassion. Every atrocity committed damages your Humanity. Should your Humanity reach zero, your soul is erased and only a mindless monster remains.
+                {{ t('whatIsVampire.humanityDesc') }}
               </p>
             </div>
             <div class="pt-6 border-t border-[#39282a] text-xs font-bold uppercase tracking-widest text-primary">
-              The Fragile Conscience
+              {{ t('whatIsVampire.humanityTag') }}
             </div>
           </div>
         </div>
@@ -223,15 +226,15 @@ const scrollToSection = (id) => {
           <div class="p-8 sm:p-12 border-b border-[#39282a]">
             <div class="flex items-center gap-2 text-primary text-xs font-bold uppercase tracking-[0.2em] bg-primary/10 px-3 py-1 rounded border border-primary/20 w-fit mb-4">
               <i class="fa-solid fa-skull text-xs"></i>
-              The Reality of The Feed
+              {{ t('whatIsVampire.feedBadge') }}
             </div>
 
             <h3 class="text-2xl sm:text-3xl lg:text-4xl font-black uppercase text-white leading-tight mb-4">
-              The Visceral Thirst : From Alley Predation to Courtly Revels
+              {{ t('whatIsVampire.feedTitle') }}
             </h3>
 
             <p class="text-gray-300 text-sm sm:text-base font-light leading-relaxed max-w-4xl">
-              Feeding is not an abstract roll of dice in Athens Through Time: it is a lived narrative event. To preserve unlife, every kindred must feed upon the blood of mortals or other vampires. Whether hunting in shadowy metro stations or toasting with crimson chalices at an aristocratic Elysium ball, the taste of vitae defines who you are.
+              {{ t('whatIsVampire.feedDesc') }}
             </p>
           </div>
 
@@ -247,17 +250,17 @@ const scrollToSection = (id) => {
                 />
                 <div class="absolute inset-0 bg-gradient-to-t from-surface-dark via-transparent to-transparent"></div>
                 <div class="absolute top-4 left-4 bg-primary/90 text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded">
-                  The Street Predation
+                  {{ t('whatIsVampire.streetBadge') }}
                 </div>
               </div>
               <div class="p-6 sm:p-8 space-y-3">
                 <div class="flex items-center gap-2 text-primary text-xs font-bold uppercase tracking-wider">
                   <i class="fa-solid fa-triangle-exclamation text-xs"></i>
-                  <span>The Bestial Thirst</span>
+                  <span>{{ t('whatIsVampire.streetTag') }}</span>
                 </div>
-                <h4 class="text-xl font-bold uppercase text-white">Urban Predation and Compulsions</h4>
+                <h4 class="text-xl font-bold uppercase text-white">{{ t('whatIsVampire.streetTitle') }}</h4>
                 <p class="text-xs text-gray-400 font-light leading-relaxed">
-                  When Hunger dice overwhelm a vampire's roll, the Beast asserts immediate dominion. Social composure shatters, forcing predatory compulsions that demand instant satiation regardless of risk or location.
+                  {{ t('whatIsVampire.streetDesc') }}
                 </p>
               </div>
             </div>
@@ -272,17 +275,17 @@ const scrollToSection = (id) => {
                 />
                 <div class="absolute inset-0 bg-gradient-to-t from-surface-dark via-transparent to-transparent"></div>
                 <div class="absolute top-4 left-4 bg-[#8a0b16] text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded">
-                  The Salon Decadence
+                  {{ t('whatIsVampire.salonBadge') }}
                 </div>
               </div>
               <div class="p-6 sm:p-8 space-y-3">
                 <div class="flex items-center gap-2 text-primary text-xs font-bold uppercase tracking-wider">
                   <i class="fa-solid fa-wine-glass text-xs"></i>
-                  <span>The Sanguine Banquet</span>
+                  <span>{{ t('whatIsVampire.salonTag') }}</span>
                 </div>
-                <h4 class="text-xl font-bold uppercase text-white">Court Revels and Blood Resonance</h4>
+                <h4 class="text-xl font-bold uppercase text-white">{{ t('whatIsVampire.salonTitle') }}</h4>
                 <p class="text-xs text-gray-400 font-light leading-relaxed">
-                  In high Elysium gatherings, vitae is served with ceremony and deliberation. In V5, mortal emotional states impart distinct resonances to the blood, granting temporary discipline enhancements to those who discern their nuances.
+                  {{ t('whatIsVampire.salonDesc') }}
                 </p>
               </div>
             </div>
@@ -301,7 +304,7 @@ const scrollToSection = (id) => {
               />
               <div class="absolute inset-0 bg-gradient-to-t from-surface-dark via-transparent to-transparent"></div>
               <div class="absolute top-4 left-4 bg-primary/90 text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded">
-                Distilled Essence
+                {{ t('whatIsVampire.vitaeBadge') }}
               </div>
             </div>
 
@@ -309,27 +312,27 @@ const scrollToSection = (id) => {
               <div class="space-y-3">
                 <div class="flex items-center gap-2 text-primary text-xs font-bold uppercase tracking-widest">
                   <i class="fa-solid fa-flask text-xs"></i>
-                  <span>Vitae : The Blood of Caine</span>
+                  <span>{{ t('whatIsVampire.vitaeTag') }}</span>
                 </div>
                 <h3 class="text-xl sm:text-2xl font-black uppercase text-white">
-                  The Power of Vitae
+                  {{ t('whatIsVampire.vitaeTitle') }}
                 </h3>
                 <p class="text-xs sm:text-sm text-gray-300 font-light leading-relaxed">
-                  Vampiric blood is not mere biology: it is an occult superconductor of supernatural power. Kindred can heal mortal wounds in seconds, enhance reflexes to blurred speeds, or enthrall others through the dreaded <strong>Blood Bond</strong>.
+                  {{ t('whatIsVampire.vitaeDesc') }}
                 </p>
                 <div class="p-3.5 rounded-lg bg-[#181112] border border-[#39282a] space-y-1 text-xs">
                   <div class="flex items-center gap-2 text-primary font-bold uppercase tracking-wider text-[11px]">
                     <i class="fa-solid fa-link text-xs"></i>
-                    <span>The Blood Bond (Vinculum)</span>
+                    <span>{{ t('whatIsVampire.bloodBondTitle') }}</span>
                   </div>
                   <p class="text-gray-400 font-light leading-relaxed text-[11px]">
-                    Drinking the vitae of another vampire thrice creates absolute devotion. The thrall loves their regnant beyond family, reason, or self preservation.
+                    {{ t('whatIsVampire.bloodBondDesc') }}
                   </p>
                 </div>
               </div>
 
               <div class="pt-4 border-t border-[#39282a] text-xs font-bold uppercase tracking-widest text-gray-400">
-                Blood Bonds & Potency
+                {{ t('whatIsVampire.vitaeFooter') }}
               </div>
             </div>
           </div>
@@ -344,7 +347,7 @@ const scrollToSection = (id) => {
               />
               <div class="absolute inset-0 bg-gradient-to-t from-surface-dark via-transparent to-transparent"></div>
               <div class="absolute top-4 left-4 bg-[#8a0b16] text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded">
-                Crimson Rites
+                {{ t('whatIsVampire.sorceryBadge') }}
               </div>
             </div>
 
@@ -352,27 +355,27 @@ const scrollToSection = (id) => {
               <div class="space-y-3">
                 <div class="flex items-center gap-2 text-primary text-xs font-bold uppercase tracking-widest">
                   <i class="fa-solid fa-hand-holding-droplet text-xs"></i>
-                  <span>Blood Sorcery</span>
+                  <span>{{ t('whatIsVampire.sorceryTag') }}</span>
                 </div>
                 <h3 class="text-xl sm:text-2xl font-black uppercase text-white">
-                  Thaumaturgy & Wards
+                  {{ t('whatIsVampire.sorceryTitle') }}
                 </h3>
                 <p class="text-xs sm:text-sm text-gray-300 font-light leading-relaxed">
-                  Hermetic scholars of Clan Tremere treat vitae as the supreme occult catalyst. Through disciplined ritual formulas and dedicated sanctums, practitioners awaken defensive wards, decipher lineage curses, and weave protective circles across Athenian havens.
+                  {{ t('whatIsVampire.sorceryDesc') }}
                 </p>
                 <div class="p-3.5 rounded-lg bg-[#181112] border border-[#39282a] space-y-1 text-xs">
                   <div class="flex items-center gap-2 text-primary font-bold uppercase tracking-wider text-[11px]">
                     <i class="fa-solid fa-fire text-xs"></i>
-                    <span>Hermetic Formulas</span>
+                    <span>{{ t('whatIsVampire.formulasTitle') }}</span>
                   </div>
                   <p class="text-gray-400 font-light leading-relaxed text-[11px]">
-                    By channeling vitae into consecrated circles, sorcerers scry distant domains, preserve occult lore, and seal territory against supernatural intruders.
+                    {{ t('whatIsVampire.formulasDesc') }}
                   </p>
                 </div>
               </div>
 
               <div class="pt-4 border-t border-[#39282a] text-xs font-bold uppercase tracking-widest text-gray-400">
-                Hermetic Rites & Blood Oaths
+                {{ t('whatIsVampire.sorceryFooter') }}
               </div>
             </div>
           </div>
@@ -387,7 +390,7 @@ const scrollToSection = (id) => {
               />
               <div class="absolute inset-0 bg-gradient-to-t from-surface-dark via-transparent to-transparent"></div>
               <div class="absolute top-4 left-4 bg-[#631019] text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded">
-                Esoteric Arts
+                {{ t('whatIsVampire.oblivionBadge') }}
               </div>
             </div>
 
@@ -395,27 +398,27 @@ const scrollToSection = (id) => {
               <div class="space-y-3">
                 <div class="flex items-center gap-2 text-primary text-xs font-bold uppercase tracking-widest">
                   <i class="fa-solid fa-hat-wizard text-xs"></i>
-                  <span>Esoteric Disciplines</span>
+                  <span>{{ t('whatIsVampire.oblivionTag') }}</span>
                 </div>
                 <h3 class="text-xl sm:text-2xl font-black uppercase text-white">
-                  Oblivion & Necromancy
+                  {{ t('whatIsVampire.oblivionTitle') }}
                 </h3>
                 <p class="text-xs sm:text-sm text-gray-300 font-light leading-relaxed">
-                  Beyond blood lies the eternal void of the Underworld. Hecata necromancers and Lasombra magisters command shadows from the Abyss, consulting restless specters that haunt Athenian ruins and catacombs.
+                  {{ t('whatIsVampire.oblivionDesc') }}
                 </p>
                 <div class="p-3.5 rounded-lg bg-[#181112] border border-[#39282a] space-y-1 text-xs">
                   <div class="flex items-center gap-2 text-primary font-bold uppercase tracking-wider text-[11px]">
                     <i class="fa-solid fa-vial-circle-check text-xs"></i>
-                    <span>Thin Blood Alchemy</span>
+                    <span>{{ t('whatIsVampire.thinBloodTitle') }}</span>
                   </div>
                   <p class="text-gray-400 font-light leading-relaxed text-[11px]">
-                    Modern duskborn vampires cook street chemicals and thin blood into volatile potions, forging modern counterfeits to ancient disciplines.
+                    {{ t('whatIsVampire.thinBloodDesc') }}
                   </p>
                 </div>
               </div>
 
               <div class="pt-4 border-t border-[#39282a] text-xs font-bold uppercase tracking-widest text-gray-400">
-                Wards , Whispers Beyond the Veil
+                {{ t('whatIsVampire.oblivionFooter') }}
               </div>
             </div>
           </div>
@@ -430,16 +433,16 @@ const scrollToSection = (id) => {
           <div class="lg:col-span-6 space-y-6">
             <div class="flex items-center gap-2 text-primary text-xs font-bold uppercase tracking-[0.2em] bg-primary/10 px-3 py-1 rounded border border-primary/20 w-fit">
               <i class="fa-solid fa-eye-slash text-xs"></i>
-              The First Tradition
+              {{ t('whatIsVampire.masqueradeBadge') }}
             </div>
             <h2 class="text-3xl sm:text-4xl md:text-5xl font-black uppercase tracking-tight text-white leading-tight">
-              The Masquerade : Secrecy Is Survival
+              {{ t('whatIsVampire.masqueradeTitle') }}
             </h2>
             <p class="text-gray-300 text-base sm:text-lg font-light leading-relaxed">
-              "Thou shalt not reveal thy true nature unto those not of the Blood." In past centuries, vampires ruled openly from stone castles. Today, humanity numbers eight billion, interconnected by mobile cameras, satellite feeds, facial recognition, and clandestine government agencies known as the <strong>Second Inquisition</strong>.
+              {{ t('whatIsVampire.masqueradeP1') }}
             </p>
             <p class="text-gray-400 text-sm leading-relaxed font-light">
-              A single indiscreet feeding or public display of supernatural power captured on video can bring mortal strike teams with white phosphorus and daylight drones upon an entire city domain. The Masquerade is the iron law that keeps every vampire alive.
+              {{ t('whatIsVampire.masqueradeP2') }}
             </p>
           </div>
 
@@ -453,10 +456,10 @@ const scrollToSection = (id) => {
               <div class="absolute inset-0 bg-gradient-to-t from-[#181112] via-transparent to-transparent"></div>
               <div class="absolute bottom-4 left-4 right-4 p-4 bg-[#181112]/95 backdrop-blur-md rounded-xl border border-[#39282a]">
                 <p class="text-xs font-bold uppercase tracking-widest text-primary mb-1">
-                  Walking Among Sheep
+                  {{ t('whatIsVampire.walkingSheepTitle') }}
                 </p>
                 <p class="text-xs text-gray-300 font-light">
-                  A vampire must look, act, and dress like a mortal at all times. Any breach is met with execution by the Prince.
+                  {{ t('whatIsVampire.walkingSheepDesc') }}
                 </p>
               </div>
             </div>
@@ -467,10 +470,10 @@ const scrollToSection = (id) => {
         <div class="border-t border-[#39282a] pt-16">
           <div class="text-center max-w-2xl mx-auto mb-12">
             <span class="text-primary text-xs font-bold uppercase tracking-[0.2em] block mb-1">
-              Ancient Decrees
+              {{ t('whatIsVampire.sixTraditionsBadge') }}
             </span>
             <h3 class="text-2xl sm:text-3xl font-black uppercase text-white">
-              The Six Traditions of Caine
+              {{ t('whatIsVampire.sixTraditionsTitle') }}
             </h3>
           </div>
 
@@ -478,66 +481,66 @@ const scrollToSection = (id) => {
             <div class="bg-surface-dark p-6 rounded-xl border border-[#39282a] space-y-2">
               <div class="flex items-center justify-between mb-1">
                 <span class="text-primary font-black text-lg">I</span>
-                <span class="text-[10px] uppercase font-bold text-gray-500 tracking-widest">Tradition</span>
+                <span class="text-[10px] uppercase font-bold text-gray-500 tracking-widest">{{ t('whatIsVampire.traditionTag') }}</span>
               </div>
-              <h4 class="text-base font-bold uppercase text-white">The Masquerade</h4>
+              <h4 class="text-base font-bold uppercase text-white">{{ t('whatIsVampire.t1Title') }}</h4>
               <p class="text-xs text-gray-400 font-light leading-relaxed">
-                Never reveal the presence of vampires to mortals. Protect the veil at all costs.
+                {{ t('whatIsVampire.t1Desc') }}
               </p>
             </div>
 
             <div class="bg-surface-dark p-6 rounded-xl border border-[#39282a] space-y-2">
               <div class="flex items-center justify-between mb-1">
                 <span class="text-primary font-black text-lg">II</span>
-                <span class="text-[10px] uppercase font-bold text-gray-500 tracking-widest">Tradition</span>
+                <span class="text-[10px] uppercase font-bold text-gray-500 tracking-widest">{{ t('whatIsVampire.traditionTag') }}</span>
               </div>
-              <h4 class="text-base font-bold uppercase text-white">The Domain</h4>
+              <h4 class="text-base font-bold uppercase text-white">{{ t('whatIsVampire.t2Title') }}</h4>
               <p class="text-xs text-gray-400 font-light leading-relaxed">
-                Respect the territory of the Prince and other kindred. Claim no hunting ground without consent.
+                {{ t('whatIsVampire.t2Desc') }}
               </p>
             </div>
 
             <div class="bg-surface-dark p-6 rounded-xl border border-[#39282a] space-y-2">
               <div class="flex items-center justify-between mb-1">
                 <span class="text-primary font-black text-lg">III</span>
-                <span class="text-[10px] uppercase font-bold text-gray-500 tracking-widest">Tradition</span>
+                <span class="text-[10px] uppercase font-bold text-gray-500 tracking-widest">{{ t('whatIsVampire.traditionTag') }}</span>
               </div>
-              <h4 class="text-base font-bold uppercase text-white">The Progeny</h4>
+              <h4 class="text-base font-bold uppercase text-white">{{ t('whatIsVampire.t3Title') }}</h4>
               <p class="text-xs text-gray-400 font-light leading-relaxed">
-                Sire new vampires only with the explicit permission of the reigning Prince of the city.
+                {{ t('whatIsVampire.t3Desc') }}
               </p>
             </div>
 
             <div class="bg-surface-dark p-6 rounded-xl border border-[#39282a] space-y-2">
               <div class="flex items-center justify-between mb-1">
                 <span class="text-primary font-black text-lg">IV</span>
-                <span class="text-[10px] uppercase font-bold text-gray-500 tracking-widest">Tradition</span>
+                <span class="text-[10px] uppercase font-bold text-gray-500 tracking-widest">{{ t('whatIsVampire.traditionTag') }}</span>
               </div>
-              <h4 class="text-base font-bold uppercase text-white">The Accounting</h4>
+              <h4 class="text-base font-bold uppercase text-white">{{ t('whatIsVampire.t4Title') }}</h4>
               <p class="text-xs text-gray-400 font-light leading-relaxed">
-                You are responsible for every crime committed by your childer until they are officially released.
+                {{ t('whatIsVampire.t4Desc') }}
               </p>
             </div>
 
             <div class="bg-surface-dark p-6 rounded-xl border border-[#39282a] space-y-2">
               <div class="flex items-center justify-between mb-1">
                 <span class="text-primary font-black text-lg">V</span>
-                <span class="text-[10px] uppercase font-bold text-gray-500 tracking-widest">Tradition</span>
+                <span class="text-[10px] uppercase font-bold text-gray-500 tracking-widest">{{ t('whatIsVampire.traditionTag') }}</span>
               </div>
-              <h4 class="text-base font-bold uppercase text-white">The Hospitality</h4>
+              <h4 class="text-base font-bold uppercase text-white">{{ t('whatIsVampire.t5Title') }}</h4>
               <p class="text-xs text-gray-400 font-light leading-relaxed">
-                When arriving in a new city, present yourself to the Prince and Keeper of Elysium immediately.
+                {{ t('whatIsVampire.t5Desc') }}
               </p>
             </div>
 
             <div class="bg-surface-dark p-6 rounded-xl border border-[#39282a] space-y-2">
               <div class="flex items-center justify-between mb-1">
                 <span class="text-primary font-black text-lg">VI</span>
-                <span class="text-[10px] uppercase font-bold text-gray-500 tracking-widest">Tradition</span>
+                <span class="text-[10px] uppercase font-bold text-gray-500 tracking-widest">{{ t('whatIsVampire.traditionTag') }}</span>
               </div>
-              <h4 class="text-base font-bold uppercase text-white">The Destruction</h4>
+              <h4 class="text-base font-bold uppercase text-white">{{ t('whatIsVampire.t6Title') }}</h4>
               <p class="text-xs text-gray-400 font-light leading-relaxed">
-                No vampire may kill another of their kind without a Blood Hunt decreed by the Prince.
+                {{ t('whatIsVampire.t6Desc') }}
               </p>
             </div>
           </div>
@@ -548,37 +551,37 @@ const scrollToSection = (id) => {
               <div class="lg:col-span-5 p-8 sm:p-12 space-y-6 order-2 lg:order-1">
                 <div class="flex items-center gap-2 text-primary text-xs font-bold uppercase tracking-[0.2em] bg-primary/10 px-3 py-1 rounded border border-primary/20 w-fit">
                   <i class="fa-solid fa-network-wired text-xs"></i>
-                  SchreckNET & Court Decrees
+                  {{ t('whatIsVampire.decreeBadge') }}
                 </div>
 
                 <h3 class="text-2xl sm:text-3xl font-black uppercase text-white leading-tight">
-                  The Prince's Decree : Secrecy in the Digital Age
+                  {{ t('whatIsVampire.decreeTitle') }}
                 </h3>
 
                 <p class="text-gray-300 text-sm sm:text-base font-light leading-relaxed">
-                  While underground networks like SchreckNET and isolated encrypted channels exist among Kindred, digital communications are scarce and heavily monitored under the watchful gaze of the Second Inquisition.
+                  {{ t('whatIsVampire.decreeP1') }}
                 </p>
 
                 <p class="text-gray-400 text-sm font-light leading-relaxed">
-                  Because electronic channels remain exceptionally rare and perilous, official decrees, domain borders, and formal court summons from the Prince are sealed with wax and delivered by hand to guarantee authenticity without digital interception.
+                  {{ t('whatIsVampire.decreeP2') }}
                 </p>
 
                 <div class="space-y-3 pt-2">
                   <div class="p-4 rounded-xl bg-[#181112] border border-[#39282a] space-y-1">
                     <span class="text-xs font-bold uppercase tracking-widest text-primary block">
-                      The Seal of Provenance
+                      {{ t('whatIsVampire.sealProvenanceTitle') }}
                     </span>
                     <p class="text-xs text-gray-400 font-light leading-relaxed">
-                      Every Prince and Primogen holds a unique signet. Tampering with or forging an official seal is treated as treason against the domain.
+                      {{ t('whatIsVampire.sealProvenanceDesc') }}
                     </p>
                   </div>
 
                   <div class="p-4 rounded-xl bg-[#181112] border border-[#39282a] space-y-1">
                     <span class="text-xs font-bold uppercase tracking-widest text-primary block">
-                      The Ledger of Boons
+                      {{ t('whatIsVampire.ledgerBoonsTitle') }}
                     </span>
                     <p class="text-xs text-gray-400 font-light leading-relaxed">
-                      Life debts, trivial favors, and political alliances are recorded in sealed contracts, cataloged by Harpies to guarantee payment across centuries.
+                      {{ t('whatIsVampire.ledgerBoonsDesc') }}
                     </p>
                   </div>
                 </div>
@@ -593,10 +596,10 @@ const scrollToSection = (id) => {
                 <div class="absolute inset-0 bg-gradient-to-t from-[#181112] via-transparent to-transparent lg:hidden"></div>
                 <div class="absolute bottom-4 left-4 right-4 p-4 bg-[#181112]/95 backdrop-blur-md rounded-xl border border-[#39282a] lg:hidden">
                   <span class="text-xs font-bold uppercase tracking-widest text-primary block mb-1">
-                    The Crimson Seal
+                    {{ t('whatIsVampire.crimsonSealTag') }}
                   </span>
                   <p class="text-xs text-gray-300 font-light">
-                    Official court decrees and safe passage missives, sealed with wax to preserve Masquerade secrecy.
+                    {{ t('whatIsVampire.crimsonSealDesc') }}
                   </p>
                 </div>
               </div>
@@ -613,39 +616,39 @@ const scrollToSection = (id) => {
           <div class="lg:col-span-6 space-y-6">
             <div class="flex items-center gap-2 text-primary text-xs font-bold uppercase tracking-[0.2em] bg-primary/10 px-3 py-1 rounded border border-primary/20 w-fit">
               <i class="fa-solid fa-chess-rook text-xs"></i>
-              The Sovereign Domain
+              {{ t('whatIsVampire.domainBadge') }}
             </div>
 
             <h2 class="text-3xl sm:text-4xl md:text-5xl font-black uppercase tracking-tight text-white leading-tight">
-              The Camarilla Court of Athens
+              {{ t('whatIsVampire.domainTitle') }}
             </h2>
 
             <p class="text-gray-300 text-base sm:text-lg font-light leading-relaxed">
-              In Athens, kindred society is governed exclusively by the Camarilla: the Ivory Tower. Rejecting anarchy and disorder, the domain operates as an aristocratic feudal hierarchy where power flows from ancient lineages and strict obedience to the Traditions of Caine.
+              {{ t('whatIsVampire.domainP1') }}
             </p>
 
             <p class="text-gray-400 text-sm leading-relaxed font-light">
-              Under the rule of the Prince and the Primogen Council, the Athenian court preserves order across neoclassical salons, cultural institutions, and historic boroughs. Here, lineage commands deference, decorum is mandatory, and transgressions against the domain are answered with swift, merciless judgment.
+              {{ t('whatIsVampire.domainP2') }}
             </p>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
               <div class="p-5 rounded-xl bg-surface-dark border border-[#39282a] space-y-2">
                 <div class="flex items-center gap-2 text-primary text-xs font-bold uppercase tracking-wider">
                   <i class="fa-solid fa-crown text-xs"></i>
-                  <span>The Prince & Primogen</span>
+                  <span>{{ t('whatIsVampire.princePrimogenTitle') }}</span>
                 </div>
                 <p class="text-xs text-gray-400 font-light leading-relaxed">
-                  The sovereign ruler commands the city, flanked by elder councilors who represent the established clans of the Camarilla.
+                  {{ t('whatIsVampire.princePrimogenDesc') }}
                 </p>
               </div>
 
               <div class="p-5 rounded-xl bg-surface-dark border border-[#39282a] space-y-2">
                 <div class="flex items-center gap-2 text-primary text-xs font-bold uppercase tracking-wider">
                   <i class="fa-solid fa-scale-balanced text-xs"></i>
-                  <span>Tradition & Feudal Law</span>
+                  <span>{{ t('whatIsVampire.feudalLawTitle') }}</span>
                 </div>
                 <p class="text-xs text-gray-400 font-light leading-relaxed">
-                  Hunting rights, domain borders, and siring permissions are granted strictly by court decree, securing the domain from chaos.
+                  {{ t('whatIsVampire.feudalLawDesc') }}
                 </p>
               </div>
             </div>
@@ -662,10 +665,10 @@ const scrollToSection = (id) => {
               <div class="absolute bottom-6 left-6 right-6 p-5 bg-[#181112]/95 backdrop-blur-md rounded-xl border border-[#39282a]">
                 <div class="flex items-center gap-2 text-primary text-xs font-bold uppercase tracking-widest mb-1">
                   <i class="fa-solid fa-landmark text-xs"></i>
-                  <span>The Ivory Tower in Athens</span>
+                  <span>{{ t('whatIsVampire.ivoryTowerTitle') }}</span>
                 </div>
                 <p class="text-xs text-gray-300 font-light leading-relaxed">
-                  Order, tradition, and hierarchy define the domain, maintaining ancient dominion over the historic city.
+                  {{ t('whatIsVampire.ivoryTowerDesc') }}
                 </p>
               </div>
             </div>
@@ -687,10 +690,10 @@ const scrollToSection = (id) => {
             <div class="absolute inset-0 bg-gradient-to-t from-[#181112] via-transparent to-transparent"></div>
             <div class="absolute bottom-4 left-4 right-4 p-4 bg-[#181112]/95 backdrop-blur-md rounded-xl border border-[#39282a]">
               <span class="text-xs font-bold uppercase tracking-widest text-primary block mb-1">
-                Ancestral Heritage
+                {{ t('whatIsVampire.ancestralOverlayTag') }}
               </span>
               <p class="text-xs text-gray-300 font-light">
-                Kindred bloodlines span centuries in Athens, where historical decisions directly shape modern domain politics.
+                {{ t('whatIsVampire.ancestralOverlayDesc') }}
               </p>
             </div>
           </div>
@@ -698,23 +701,23 @@ const scrollToSection = (id) => {
           <div class="lg:col-span-6 space-y-6">
             <div class="flex items-center gap-2 text-primary text-xs font-bold uppercase tracking-[0.2em] bg-primary/10 px-3 py-1 rounded border border-primary/20 w-fit">
               <i class="fa-solid fa-hourglass-half text-xs"></i>
-              The Athens Chronicle Pulse
+              {{ t('whatIsVampire.pulseBadge') }}
             </div>
             <h2 class="text-3xl sm:text-4xl md:text-5xl font-black uppercase tracking-tight text-white leading-tight">
-              The 3:1 Cycle : Echoes of Heritage
+              {{ t('whatIsVampire.pulseTitle') }}
             </h2>
             <p class="text-gray-300 text-base sm:text-lg font-light leading-relaxed">
-              In a city with three thousand years of continuous history, the past is never buried. Athens Through Time is structured around a unique <strong>3:1 ratio</strong>: three Modern Nights sessions followed by one Historical Echo session where you step into the shoes of your character's ancient Ancestor.
+              {{ t('whatIsVampire.pulseP1') }}
             </p>
             <p class="text-gray-400 text-sm leading-relaxed font-light">
-              What your Ancestor negotiates, steals, or buries in the historical session changes the political map of Athens tonight. Deeds done in blood echo through eternity.
+              {{ t('whatIsVampire.pulseP2') }}
             </p>
             <div class="pt-2">
               <RouterLink
                 to="/setting"
                 class="inline-flex items-center gap-3 px-8 py-4 bg-primary hover:bg-primary-dark transition-all rounded-lg text-white text-xs font-bold uppercase tracking-widest shadow-[0_0_20px_rgba(212,17,33,0.4)]"
               >
-                <span>Read The Full Setting Lore</span>
+                <span>{{ t('whatIsVampire.readSettingBtn') }}</span>
                 <i class="fa-solid fa-arrow-right text-xs"></i>
               </RouterLink>
             </div>
@@ -728,13 +731,13 @@ const scrollToSection = (id) => {
       <div class="max-w-[1400px] mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
         <div class="space-y-2 text-center md:text-left">
           <span class="text-primary text-xs font-bold uppercase tracking-[0.2em] block">
-            Join The Chronicle
+            {{ t('whatIsVampire.stepNightBadge') }}
           </span>
           <h3 class="text-2xl sm:text-3xl font-black uppercase text-white">
-            Step Into The Night
+            {{ t('whatIsVampire.stepNightTitle') }}
           </h3>
           <p class="text-sm text-gray-300 font-light max-w-2xl">
-            Meet the Storyteller team, review the chronicle guidelines, or join our community Discord to prepare your character sheet for the next session.
+            {{ t('whatIsVampire.stepNightDesc') }}
           </p>
         </div>
 
@@ -743,7 +746,7 @@ const scrollToSection = (id) => {
             to="/storytellers"
             class="flex items-center gap-3 px-6 py-3.5 bg-surface-dark hover:bg-surface-dark/80 border border-[#39282a] hover:border-primary transition-all rounded-lg text-white text-xs font-bold uppercase tracking-widest"
           >
-            <span>Storytellers</span>
+            <span>{{ t('nav.storytellers') }}</span>
             <i class="fa-solid fa-users text-xs"></i>
           </RouterLink>
           <a
@@ -752,7 +755,7 @@ const scrollToSection = (id) => {
             rel="noopener noreferrer"
             class="flex items-center gap-3 px-6 py-3.5 bg-primary hover:bg-primary-dark transition-all rounded-lg text-white text-xs font-bold uppercase tracking-widest shadow-[0_0_20px_rgba(212,17,33,0.4)]"
           >
-            <span>Join Discord</span>
+            <span>{{ t('whatIsVampire.discordBtn') }}</span>
             <img src="/img/discord.webp" alt="Discord" class="h-4 w-4 object-contain" />
           </a>
         </div>

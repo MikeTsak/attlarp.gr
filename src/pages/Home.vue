@@ -1,14 +1,16 @@
 <script setup>
+import { computed } from "vue";
 import { useRouter } from "vue-router";
 import HeroSection from "../components/HeroSection.vue";
 import { useSeo } from "../composables/useSeo";
+import { useI18n } from "../composables/useI18n";
 
 const router = useRouter();
+const { t } = useI18n();
 
 useSeo({
-  title: "Athens Through Time | A Vampire: The Masquerade LARP",
-  description:
-    "An immersive World of Darkness chronicle set in Athens, Greece. Live the duality of Modern Nights and Historical Echoes in a Vampire: The Masquerade V5 LARP built on the 3:1 cycle.",
+  title: computed(() => t("seo.homeTitle")),
+  description: computed(() => t("seo.homeDesc")),
   path: "",
 });
 
@@ -46,16 +48,13 @@ const navTo = (page) => {
         <div @click="navTo('larp')" class="space-y-6 cursor-pointer group">
           <div class="flex items-center gap-3 text-primary">
             <span class="material-symbols-outlined">theater_comedy</span>
-            <h3 class="text-xl font-bold uppercase tracking-wider group-hover:text-white transition-colors">What is LARP?</h3>
+            <h3 class="text-xl font-bold uppercase tracking-wider group-hover:text-white transition-colors">{{ t('home.welcome.larpTitle') }}</h3>
           </div>
           <p class="text-gray-400 leading-relaxed group-hover:text-gray-300 transition-colors">
-            Live Action Role Playing (LARP) is a form of collaborative storytelling. You do not just
-            describe your character actions, you embody them. Dressed in costume, you interact
-            with other players in real time, making decisions that influence the shared narrative in
-            an immersive environment.
+            {{ t('home.welcome.larpDesc') }}
           </p>
           <div class="text-xs text-primary font-bold uppercase tracking-widest flex items-center gap-2 group-hover:translate-x-1 transition-transform">
-            <span>Learn More</span>
+            <span>{{ t('home.welcome.learnMore') }}</span>
             <i class="fa-solid fa-arrow-right text-[10px]"></i>
           </div>
         </div>
@@ -63,16 +62,13 @@ const navTo = (page) => {
         <div @click="navTo('vtm')" class="space-y-6 cursor-pointer group">
           <div class="flex items-center gap-3 text-primary">
             <span class="material-symbols-outlined">bloodtype</span>
-            <h3 class="text-xl font-bold uppercase tracking-wider group-hover:text-white transition-colors">What is VTM?</h3>
+            <h3 class="text-xl font-bold uppercase tracking-wider group-hover:text-white transition-colors">{{ t('home.welcome.vtmTitle') }}</h3>
           </div>
           <p class="text-gray-400 leading-relaxed group-hover:text-gray-300 transition-colors">
-            Vampire: The Masquerade is a game of personal and political horror. You play a vampire
-            struggling to maintain your humanity while navigating the treacherous politics of the
-            undead. In the 5th Edition (V5), the hunger is a constant companion, driving every
-            choice you make.
+            {{ t('home.welcome.vtmDesc') }}
           </p>
           <div class="text-xs text-primary font-bold uppercase tracking-widest flex items-center gap-2 group-hover:translate-x-1 transition-transform">
-            <span>Learn More</span>
+            <span>{{ t('home.welcome.learnMore') }}</span>
             <i class="fa-solid fa-arrow-right text-[10px]"></i>
           </div>
         </div>
@@ -80,16 +76,13 @@ const navTo = (page) => {
         <div @click="navTo('setting')" class="space-y-6 cursor-pointer group">
           <div class="flex items-center gap-3 text-primary">
             <span class="material-symbols-outlined">history_edu</span>
-            <h3 class="text-xl font-bold uppercase tracking-wider group-hover:text-white transition-colors">Athens Through Time?</h3>
+            <h3 class="text-xl font-bold uppercase tracking-wider group-hover:text-white transition-colors">{{ t('home.welcome.attTitle') }}</h3>
           </div>
           <p class="text-gray-400 leading-relaxed group-hover:text-gray-300 transition-colors">
-            This is a unique chronicle set in the cradle of civilization. Athens is a city where
-            ancient gods have been replaced by eternal monsters. Here, the weight of history is not
-            just a metaphor, it is a mechanic. Our story spans generations, connecting the modern
-            nights to the whispers of the past.
+            {{ t('home.welcome.attDesc') }}
           </p>
           <div class="text-xs text-primary font-bold uppercase tracking-widest flex items-center gap-2 group-hover:translate-x-1 transition-transform">
-            <span>Explore Setting</span>
+            <span>{{ t('home.welcome.exploreSetting') }}</span>
             <i class="fa-solid fa-arrow-right text-[10px]"></i>
           </div>
         </div>
@@ -103,20 +96,19 @@ const navTo = (page) => {
             class="inline-flex items-center gap-2 text-primary border border-primary/30 px-4 py-1.5 rounded-full bg-primary/10 mb-4"
           >
             <span class="material-symbols-outlined text-sm">cycle</span>
-            <span class="text-xs font-bold uppercase tracking-[0.2em]">The 3:1 Cycle</span>
+            <span class="text-xs font-bold uppercase tracking-[0.2em]">{{ t('home.cycle.badge') }}</span>
           </div>
 
           <button @click="navTo('setting')" type="button" class="group">
             <h2
               class="text-4xl md:text-5xl font-black text-white tracking-tight mb-6 group-hover:text-primary transition-colors"
             >
-              A Legacy Carved in Blood
+              {{ t('home.cycle.title') }}
             </h2>
           </button>
 
           <p class="text-gray-400 max-w-2xl text-lg">
-            In Athens, time is fluid. Our chronicle operates on a cyclical structure where the
-            echoes of the past directly reshape the reality of the present.
+            {{ t('home.cycle.description') }}
           </p>
         </div>
 
@@ -130,11 +122,9 @@ const navTo = (page) => {
             >
               <span class="material-symbols-outlined text-3xl">psychology</span>
             </div>
-            <h3 class="text-2xl font-bold text-white mb-4 group-hover:text-primary transition-colors">The Core Concept</h3>
+            <h3 class="text-2xl font-bold text-white mb-4 group-hover:text-primary transition-colors">{{ t('home.cycle.conceptTitle') }}</h3>
             <p class="text-gray-400 text-sm leading-relaxed">
-              The chronicle is built on the principle of <strong>causality</strong>. Actions taken
-              during historical events aren't just "lore"—they are active gameplay that changes the
-              political landscape, character status, and physical environment of the modern city.
+              {{ t('home.cycle.conceptDesc') }}
             </p>
           </div>
 
@@ -147,12 +137,9 @@ const navTo = (page) => {
             >
               <span class="material-symbols-outlined text-3xl">account_tree</span>
             </div>
-            <h3 class="text-2xl font-bold text-white mb-4 group-hover:text-primary transition-colors">Structure of Play</h3>
+            <h3 class="text-2xl font-bold text-white mb-4 group-hover:text-primary transition-colors">{{ t('home.cycle.structureTitle') }}</h3>
             <p class="text-gray-400 text-sm leading-relaxed">
-              We play in blocks of four. <strong>Three Modern Nights</strong> events (set in 2026)
-              are followed by <strong>One Historical Echo</strong> (set in a significant era like
-              Classical Greece or the Ottoman occupation). Each Echo concludes a chapter of the
-              story.
+              {{ t('home.cycle.structureDesc') }}
             </p>
           </div>
 
@@ -165,11 +152,9 @@ const navTo = (page) => {
             >
               <span class="material-symbols-outlined text-3xl">groups_3</span>
             </div>
-            <h3 class="text-2xl font-bold text-white mb-4 group-hover:text-primary transition-colors">Your Character(s)</h3>
+            <h3 class="text-2xl font-bold text-white mb-4 group-hover:text-primary transition-colors">{{ t('home.cycle.charactersTitle') }}</h3>
             <p class="text-gray-400 text-sm leading-relaxed">
-              Every player maintains two personas. Your <strong>Main Character</strong> navigates
-              the neon-lit 2026. Your <strong>Ancestor</strong> (or younger self) is played during
-              the Echoes. The sins of the Ancestor become the burdens of the Main Character.
+              {{ t('home.cycle.charactersDesc') }}
             </p>
           </div>
         </div>
@@ -184,18 +169,17 @@ const navTo = (page) => {
 
           <div class="relative z-10 flex flex-col lg:flex-row gap-12 items-center">
             <div class="lg:w-1/2 space-y-6">
-              <h4 class="text-3xl font-black text-white italic group-hover:text-primary transition-colors">"The Past is Never Truly Dead."</h4>
+              <h4 class="text-3xl font-black text-white italic group-hover:text-primary transition-colors">{{ t('home.cycle.quote') }}</h4>
 
               <div class="space-y-4">
                 <div class="flex gap-4">
                   <span class="material-symbols-outlined text-primary">person</span>
                   <div>
                     <h5 class="text-white font-bold uppercase text-xs tracking-widest mb-1">
-                      Modern Characters
+                      {{ t('home.cycle.modernTitle') }}
                     </h5>
                     <p class="text-gray-400 text-sm">
-                      V5 Neonates and Ancillae struggling with the Second Inquisition and Sect
-                      warfare in 2026.
+                      {{ t('home.cycle.modernDesc') }}
                     </p>
                   </div>
                 </div>
@@ -204,11 +188,10 @@ const navTo = (page) => {
                   <span class="material-symbols-outlined text-primary">history</span>
                   <div>
                     <h5 class="text-white font-bold uppercase text-xs tracking-widest mb-1">
-                      The Ancestors
+                      {{ t('home.cycle.ancestorsTitle') }}
                     </h5>
                     <p class="text-gray-400 text-sm">
-                      The legends—or monsters—whose ancient decisions shaped the Bloodlines and
-                      Traditions you inherit today.
+                      {{ t('home.cycle.ancestorsDesc') }}
                     </p>
                   </div>
                 </div>
@@ -235,19 +218,18 @@ const navTo = (page) => {
       id="storytellers"
     >
       <div class="max-w-[1200px] mx-auto text-center">
-        <h2 class="text-primary text-sm font-bold tracking-[0.3em] uppercase mb-3">About Us</h2>
+        <h2 class="text-primary text-sm font-bold tracking-[0.3em] uppercase mb-3">{{ t('home.storytellersTeaser.badge') }}</h2>
 
         <button @click="navTo('storytellers')" type="button" class="inline-block group mb-8">
           <h3
             class="text-4xl md:text-5xl font-black text-white group-hover:text-primary transition-colors"
           >
-            The Storytellers
+            {{ t('home.storytellersTeaser.title') }}
           </h3>
         </button>
 
         <p class="text-gray-400 max-w-2xl mx-auto mb-12">
-          Meet the architects of the night. Our team of experienced Storytellers has over two
-          decades of combined experience in running high-immersion VtM chronicles.
+          {{ t('home.storytellersTeaser.desc') }}
         </p>
 
         <div class="grid sm:grid-cols-2 gap-8 max-w-4xl mx-auto">
@@ -264,7 +246,7 @@ const navTo = (page) => {
               Kikos
             </h4>
             <p class="text-primary text-xs uppercase font-bold tracking-widest mb-4">
-              SΤ, Politics Master, PR Specialist
+              {{ t('home.storytellersTeaser.st1Role') }}
             </p>
           </button>
 
@@ -281,7 +263,7 @@ const navTo = (page) => {
               Mike
             </h4>
             <p class="text-primary text-xs uppercase font-bold tracking-widest mb-4">
-              ST, Occult Master, Tech Specialist
+              {{ t('home.storytellersTeaser.st2Role') }}
             </p>
           </button>
         </div>
@@ -291,13 +273,13 @@ const navTo = (page) => {
     <section class="py-24 px-4 md:px-10 lg:px-40 bg-background-dark" id="gallery">
       <div class="max-w-[1200px] mx-auto">
         <div class="flex flex-col items-center text-center mb-16">
-          <h2 class="text-primary text-sm font-bold tracking-[0.3em] uppercase mb-3">Gallery</h2>
+          <h2 class="text-primary text-sm font-bold tracking-[0.3em] uppercase mb-3">{{ t('home.galleryTeaser.badge') }}</h2>
 
           <button @click="navTo('gallery')" type="button" class="group">
             <h3
               class="text-4xl md:text-5xl font-black text-white group-hover:text-primary transition-colors"
             >
-              Archives of the Night
+              {{ t('home.galleryTeaser.title') }}
             </h3>
           </button>
         </div>
@@ -335,12 +317,11 @@ const navTo = (page) => {
         />
 
         <h2 class="text-4xl md:text-5xl font-black text-white mb-6 tracking-tight">
-          Join the Masquerade
+          {{ t('home.register.title') }}
         </h2>
 
         <p class="text-gray-400 text-lg mb-10 leading-relaxed">
-          The court is gathering in the shadows of the Parthenon. Secure your place in the chronicle
-          before the sun rises.
+          {{ t('home.register.desc') }}
         </p>
 
         <div class="flex flex-col gap-8">
@@ -351,7 +332,7 @@ const navTo = (page) => {
             @click="trackClick('Discord')"
             class="w-full h-14 bg-primary hover:bg-primary-dark text-white font-bold uppercase tracking-widest rounded transition-all shadow-lg hover:shadow-primary/40 flex items-center justify-center gap-3"
           >
-            <span>Join our Discord</span>
+            <span>{{ t('home.register.joinDiscord') }}</span>
             <img src="/img/discord.webp" alt="Discord" class="h-6 w-6 object-contain" />
           </a>
 
@@ -401,7 +382,7 @@ const navTo = (page) => {
         </div>
 
         <p class="mt-8 text-xs text-gray-600 uppercase tracking-widest">
-          By registering, you agree to uphold the Traditions and the Dark Pack guidelines.
+          {{ t('home.register.terms') }}
         </p>
       </div>
     </section>

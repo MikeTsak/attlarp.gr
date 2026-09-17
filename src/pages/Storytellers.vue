@@ -1,10 +1,13 @@
 <script setup>
+import { computed } from "vue";
 import { useSeo, SITE_URL } from "../composables/useSeo";
+import { useI18n } from "../composables/useI18n";
+
+const { t } = useI18n();
 
 useSeo({
-  title: "The Storytellers",
-  description:
-    "Meet the Storytellers behind Athens Through Time: ST Kyriakos and ST Mike, running a V5 Vampire: The Masquerade chronicle set in Athens, Greece.",
+  title: computed(() => t("seo.storytellersTitle")),
+  description: computed(() => t("seo.storytellersDesc")),
   path: "/storytellers",
   jsonLd: {
     "@context": "https://schema.org",
@@ -43,18 +46,17 @@ useSeo({
             <h1
               class="text-white text-4xl md:text-6xl font-black leading-tight tracking-[-0.033em] uppercase italic drop-shadow-lg"
             >
-              Architects of Fate
+              {{ t('storytellers.headerTitle') }}
             </h1>
             <div class="h-1 w-24 bg-primary mx-auto my-4 shadow-[0_0_15px_#d41121]"></div>
 
-            <!-- Updated Quote -->
+            <!-- Quote -->
             <h2
               class="text-gray-300 text-lg md:text-xl font-normal max-w-2xl mx-auto italic font-serif"
             >
-              "There are two things a person should never be angry at, what they can help, and what
-              they cannot"
+              {{ t('storytellers.platoQuote') }}
             </h2>
-            <p class="text-primary/60 text-sm font-bold uppercase tracking-widest mt-2">— Plato</p>
+            <p class="text-primary/60 text-sm font-bold uppercase tracking-widest mt-2">{{ t('storytellers.platoAuthor') }}</p>
           </div>
         </div>
       </div>
@@ -65,11 +67,10 @@ useSeo({
         <h3
           class="text-primary text-2xl font-bold mb-6 text-center uppercase tracking-widest font-sans"
         >
-          The Storytellers
+          {{ t('storytellers.title') }}
         </h3>
         <p class="text-gray-300 text-lg leading-relaxed text-center px-4 md:px-20 italic">
-          Athens Through Time wasn't born from a single dream, but from a collision of visions. Meet
-          the Storytellers weaving the tapestry of our ancient, neon-lit nights.
+          {{ t('storytellers.intro') }}
         </p>
       </div>
     </div>
@@ -80,7 +81,7 @@ useSeo({
           class="flex p-6 bg-surface-dark/50 rounded-xl border border-white/5 hover:border-primary/30 transition-all duration-500 hover:bg-surface-dark"
         >
           <div class="flex w-full flex-col gap-8 md:flex-row items-center">
-<div class="relative group shrink-0 w-full md:w-64">
+            <div class="relative group shrink-0 w-full md:w-64">
               <div
                 class="bg-center bg-no-repeat bg-cover rounded-lg h-80 w-full border-2 border-primary/20 shadow-2xl transition-transform duration-500 group-hover:scale-[1.02]"
                 style="background-image: url(&quot;/img/st/kikos-2.jpg&quot;)"
@@ -93,21 +94,16 @@ useSeo({
               <div class="flex items-center gap-2 mb-2 justify-center md:justify-start">
                 <span class="material-symbols-outlined text-primary text-sm">terminal</span>
                 <p class="text-primary text-sm font-bold uppercase tracking-widest font-sans">
-                  SΤ, Politics Master, PR Specialist
+                  {{ t('storytellers.kikosRole') }}
                 </p>
               </div>
-              <p class="text-white text-4xl font-bold leading-tight mb-2">ST Kyriakos</p>
+              <p class="text-white text-4xl font-bold leading-tight mb-2">{{ t('storytellers.kikosName') }}</p>
               <p class="text-primary/80 text-sm font-bold uppercase tracking-wide mb-6 font-sans">
-                10 Years Experience | V5 & Cyberpunk Red Specialist
+                {{ t('storytellers.kikosExp') }}
               </p>
               <div class="h-px w-full bg-gradient-to-r from-primary/40 to-transparent mb-6"></div>
               <p class="text-gray-400 text-base font-normal leading-relaxed pb-6 font-sans">
-                Having an experience as a ST for almost 10 years in running a variety of RPG systems
-                like Cyberpunk Red , Vampire: The Masquerade V5 , Witchcraft, WH4Ok: Rogue Trader ,
-                Conan: Adventures in an Age Undreamed Of, and being an active member in Athens' LARP
-                community by participating in numerous events , it was time to put all the knowledge
-                to the test and create a LARP with a focus on including every new and old player
-                that are eager to try something new.
+                {{ t('storytellers.kikosBio') }}
               </p>
             </div>
           </div>
@@ -121,7 +117,7 @@ useSeo({
           class="flex p-6 bg-surface-dark/50 rounded-xl border border-white/5 hover:border-primary/30 transition-all duration-500 hover:bg-surface-dark"
         >
           <div class="flex w-full flex-col gap-8 md:flex-row-reverse items-center">
-<div class="relative group shrink-0 w-full md:w-64">
+            <div class="relative group shrink-0 w-full md:w-64">
               <div
                 class="bg-center bg-no-repeat bg-cover rounded-lg h-80 w-full border-2 border-primary/20 shadow-2xl transition-transform duration-500 group-hover:scale-[1.02]"
                 style="background-image: url(&quot;/img/st/mike-2.jpg&quot;)"
@@ -133,22 +129,17 @@ useSeo({
             <div class="flex flex-col justify-center flex-1 text-center md:text-right">
               <div class="flex items-center gap-2 mb-2 justify-center md:justify-end">
                 <p class="text-primary text-sm font-bold uppercase tracking-widest font-sans">
-                  ST, Occult Master, Tech Specialist
+                  {{ t('storytellers.mikeRole') }}
                 </p>
                 <span class="material-symbols-outlined text-primary text-sm">menu_book</span>
               </div>
-              <p class="text-white text-4xl font-bold leading-tight mb-2">ST Mike</p>
+              <p class="text-white text-4xl font-bold leading-tight mb-2">{{ t('storytellers.mikeName') }}</p>
               <p class="text-primary/80 text-sm font-bold uppercase tracking-wide mb-6 font-sans">
-                10 Years Experience | D&D & Call of Cthulhu Specialist
+                {{ t('storytellers.mikeExp') }}
               </p>
               <div class="h-px w-full bg-gradient-to-l from-primary/40 to-transparent mb-6"></div>
               <p class="text-gray-400 text-base font-normal leading-relaxed pb-6 font-sans">
-                A veteran DM ,with around 10 years of experience, in running systems like D&D 5e,
-                Call of Cthulhu 7e, M&M 3e, as well as an active LARP player in the recent years,
-                and being an amazing creative individual , he funneled his eagerness for creation
-                into this LARP ,wanting to put his own mark in the community and create something
-                fun and enjoyable that anyone can enjoy freely. Both for old and new players in the
-                Vampire: The Masquerade universe.
+                {{ t('storytellers.mikeBio') }}
               </p>
             </div>
           </div>
@@ -158,22 +149,16 @@ useSeo({
 
     <div class="px-4 lg:px-40 flex justify-center py-16">
       <div class="max-w-[720px] w-full text-center">
-        <h2 class="text-white text-3xl font-bold mb-8 italic">The Meeting of Minds</h2>
+        <h2 class="text-white text-3xl font-bold mb-8 italic">{{ t('storytellers.meetingTitle') }}</h2>
         <div class="space-y-6 text-gray-400 text-lg leading-relaxed font-sans">
           <p>
-            Kyriakos and Mike met in another Vampire: The Masquerade LARP as players around two
-            years ago and forming a bond of friendship and partnership within the following years,
-            we had decided to create something of our own.
+            {{ t('storytellers.meetingP1') }}
           </p>
           <p>
-            A story that would focus on our country's history and delve into its rich secrets ,
-            scandals and monumental events. We aim to put a different scope in witnessing the
-            historical events that took place in our city, seeing them through the lens of Athen's
-            Kindred community. Their actions, opinions and rivalries.
+            {{ t('storytellers.meetingP2') }}
           </p>
           <p class="border-l-2 border-primary pl-6 ml-6 italic text-gray-300">
-            "Athens Through Time" is the culmination of that partnership—a project designed to merge
-            Kyriakos and Mike's love for Athens and RPGs.
+            {{ t('storytellers.meetingQuote') }}
           </p>
         </div>
       </div>
@@ -187,17 +172,17 @@ useSeo({
           <div
             class="absolute -top-2 -right-6 rotate-12 border-4 border-primary/60 text-primary/60 px-4 py-2 font-black uppercase text-2xl tracking-tighter opacity-40 select-none pointer-events-none"
           >
-            Confidential
+            {{ t('storytellers.dossierConfidential') }}
           </div>
 
           <div class="flex items-start gap-4 mb-4">
             <span class="material-symbols-outlined text-primary text-4xl">folder_shared</span>
             <div>
               <h4 class="text-white text-xl font-bold tracking-widest uppercase mb-1 font-sans">
-                Dossier Fragment #092
+                {{ t('storytellers.dossierTitle') }}
               </h4>
               <p class="text-primary text-xs font-bold uppercase font-sans">
-                Subject: Internal Paradox
+                {{ t('storytellers.dossierSubject') }}
               </p>
             </div>
           </div>
@@ -207,15 +192,7 @@ useSeo({
           <div class="grid md:grid-cols-4 gap-8">
             <div class="md:col-span-3">
               <p class="text-gray-300 font-mono text-sm leading-relaxed italic">
-                "Despite the immense passion and countless hours poured into this gothic-noir
-                chronicle, field reports suggest a startling irony: The World of Darkness is
-                actually NOT the favorite gaming universe for either Architect.
-                <br /><br />
-                When the sun rises, you're more likely to find them debating when the
-                Tyxero Vraki will actually drop or how much ice cream a clone can
-                consume on a daily basis. Perhaps it is this outsider's perspective
-                that allows them to deconstruct and rebuild the Masquerade with
-                such ruthless efficiency."
+                {{ t('storytellers.dossierText') }}
               </p>
             </div>
             <div
@@ -223,7 +200,7 @@ useSeo({
             >
               <span class="material-symbols-outlined text-primary/40 text-5xl mb-2">lock</span>
               <p class="text-[10px] text-gray-500 uppercase tracking-tighter font-sans">
-                Authorized Eyes Only
+                {{ t('storytellers.dossierEyesOnly') }}
               </p>
             </div>
           </div>

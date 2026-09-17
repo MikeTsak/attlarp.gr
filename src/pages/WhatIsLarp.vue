@@ -1,10 +1,13 @@
 <script setup>
+import { computed } from "vue";
 import { useSeo } from "../composables/useSeo";
+import { useI18n } from "../composables/useI18n";
+
+const { t } = useI18n();
 
 useSeo({
-  title: "What is LARP : Athens Through Time",
-  description:
-    "Discover the world of Live Action Roleplay with Athens Through Time. Learn how embodied storytelling, Elysium court politics, and collaborative vampire roleplay come together in the dark.",
+  title: computed(() => t("seo.whatIsLarpTitle")),
+  description: computed(() => t("seo.whatIsLarpDesc")),
   path: "/what-is-larp",
 });
 
@@ -38,27 +41,27 @@ const scrollToSection = (id) => {
                 class="inline-flex items-center gap-2 rounded-full bg-primary/20 px-4 py-1 text-xs font-bold uppercase tracking-[0.2em] text-primary border border-primary/40"
               >
                 <i class="fa-solid fa-masks-theater text-xs"></i>
-                Live Action Roleplay
+                {{ t('whatIsLarp.badge1') }}
               </span>
               <span
                 class="inline-flex items-center gap-2 rounded-full bg-surface-dark px-4 py-1 text-xs font-bold uppercase tracking-widest text-gray-400 border border-[#39282a]"
               >
                 <i class="fa-solid fa-moon text-primary text-xs"></i>
-                Athens Domain
+                {{ t('whatIsLarp.badge2') }}
               </span>
             </div>
 
             <h1
               class="text-white text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black leading-[0.88] tracking-tighter uppercase"
             >
-              What is <br />
-              <span class="text-primary text-shadow-glow">LARP?</span>
+              {{ t('whatIsLarp.titlePrefix') }} <br />
+              <span class="text-primary text-shadow-glow">{{ t('whatIsLarp.titleSuffix') }}</span>
             </h1>
 
             <p
               class="text-gray-300 text-lg sm:text-xl font-light leading-relaxed border-l-4 border-primary pl-6 max-w-2xl"
             >
-              Live Action Roleplay is interactive theater without an audience and without a script. You do not describe your actions from behind dice or on a screen: you step inside the skin of your character, dressing in their attire, speaking with their voice, and confronting other players face to face in real time.
+              {{ t('whatIsLarp.lead') }}
             </p>
 
             <div class="flex flex-wrap gap-4 pt-2">
@@ -66,14 +69,14 @@ const scrollToSection = (id) => {
                 @click="scrollToSection('vampire-scale')"
                 class="flex cursor-pointer items-center justify-center gap-3 overflow-hidden rounded-lg h-14 px-8 bg-primary hover:bg-primary-dark transition-all text-white text-xs font-bold tracking-widest uppercase shadow-[0_0_25px_rgba(212,17,33,0.4)]"
               >
-                <span>The Vampire Scale</span>
+                <span>{{ t('whatIsLarp.vampireScaleBtn') }}</span>
                 <i class="fa-solid fa-arrow-down text-xs"></i>
               </button>
               <RouterLink
                 to="/what-is-vampire"
                 class="flex items-center justify-center gap-3 rounded-lg h-14 px-8 border border-[#39282a] hover:border-primary bg-surface-dark/80 hover:bg-surface-dark transition-all text-gray-300 hover:text-white text-xs font-bold tracking-widest uppercase"
               >
-                <span>What is Vampire?</span>
+                <span>{{ t('whatIsLarp.whatIsVampireBtn') }}</span>
                 <i class="fa-solid fa-chevron-right text-xs"></i>
               </RouterLink>
             </div>
@@ -95,10 +98,10 @@ const scrollToSection = (id) => {
               >
                 <div class="flex items-center gap-2 text-primary text-xs font-bold uppercase tracking-widest mb-1">
                   <i class="fa-solid fa-feather text-xs"></i>
-                  <span>The Living Medium</span>
+                  <span>{{ t('whatIsLarp.livingMedium') }}</span>
                 </div>
                 <p class="text-xs text-gray-300 font-light leading-relaxed">
-                  Embodied storytelling where every choice, conversation, and consequence is forged live by the players.
+                  {{ t('whatIsLarp.livingMediumDesc') }}
                 </p>
               </div>
             </div>
@@ -112,13 +115,13 @@ const scrollToSection = (id) => {
       <div class="max-w-[1400px] mx-auto">
         <div class="text-center max-w-3xl mx-auto mb-16">
           <span class="text-primary text-xs font-bold uppercase tracking-[0.25em] block mb-2">
-            The Definition
+            {{ t('whatIsLarp.definitionBadge') }}
           </span>
           <h2 class="text-white text-3xl sm:text-4xl md:text-5xl font-black uppercase tracking-tight">
-            How Live Action Roleplay Works
+            {{ t('whatIsLarp.foundationsTitle') }}
           </h2>
           <p class="text-text-muted text-sm sm:text-base mt-4 font-light">
-            LARP pairs improvisational acting, personal agency, and collective imagination to create stories you live rather than watch.
+            {{ t('whatIsLarp.foundationsDesc') }}
           </p>
         </div>
 
@@ -128,13 +131,13 @@ const scrollToSection = (id) => {
               <span class="size-12 rounded-xl bg-primary/20 text-primary flex items-center justify-center text-xl">
                 <i class="fa-solid fa-person-rays"></i>
               </span>
-              <h3 class="text-xl font-bold uppercase text-white">Full Embodiment</h3>
+              <h3 class="text-xl font-bold uppercase text-white">{{ t('whatIsLarp.f1Title') }}</h3>
               <p class="text-gray-400 text-sm font-light leading-relaxed">
-                You do not describe what your character does: you physically walk into the room, wear their clothes, speak to allies and rivals in the first person, and react to surprises in the moment.
+                {{ t('whatIsLarp.f1Desc') }}
               </p>
             </div>
             <div class="pt-4 border-t border-[#39282a] text-xs font-bold uppercase tracking-widest text-primary">
-              First Person Presence
+              {{ t('whatIsLarp.f1Tag') }}
             </div>
           </div>
 
@@ -143,13 +146,13 @@ const scrollToSection = (id) => {
               <span class="size-12 rounded-xl bg-primary/20 text-primary flex items-center justify-center text-xl">
                 <i class="fa-solid fa-hands-holding-circle"></i>
               </span>
-              <h3 class="text-xl font-bold uppercase text-white">Play to Lift</h3>
+              <h3 class="text-xl font-bold uppercase text-white">{{ t('whatIsLarp.f2Title') }}</h3>
               <p class="text-gray-400 text-sm font-light leading-relaxed">
-                LARP is not a game you win. It is collaborative storytelling. Great players support each other's dramatic scenes, accept setbacks when it makes the story thrilling, and prioritize narrative immersion over personal victory.
+                {{ t('whatIsLarp.f2Desc') }}
               </p>
             </div>
             <div class="pt-4 border-t border-[#39282a] text-xs font-bold uppercase tracking-widest text-primary">
-              Collaborative Art
+              {{ t('whatIsLarp.f2Tag') }}
             </div>
           </div>
 
@@ -158,13 +161,13 @@ const scrollToSection = (id) => {
               <span class="size-12 rounded-xl bg-primary/20 text-primary flex items-center justify-center text-xl">
                 <i class="fa-solid fa-compass"></i>
               </span>
-              <h3 class="text-xl font-bold uppercase text-white">Unscripted Freedom</h3>
+              <h3 class="text-xl font-bold uppercase text-white">{{ t('whatIsLarp.f3Title') }}</h3>
               <p class="text-gray-400 text-sm font-light leading-relaxed">
-                Storytellers establish the world, the overarching mysteries, and non player characters, but there is no written script. Every alliance, betrayal, and political compromise is decided entirely by player choices.
+                {{ t('whatIsLarp.f3Desc') }}
               </p>
             </div>
             <div class="pt-4 border-t border-[#39282a] text-xs font-bold uppercase tracking-widest text-primary">
-              Pure Agency
+              {{ t('whatIsLarp.f3Tag') }}
             </div>
           </div>
         </div>
@@ -176,13 +179,13 @@ const scrollToSection = (id) => {
       <div class="max-w-[1400px] mx-auto space-y-16">
         <div class="text-center max-w-3xl mx-auto">
           <span class="text-primary text-xs font-bold uppercase tracking-[0.2em] block mb-2">
-            The Vampire Scale
+            {{ t('whatIsLarp.parlorSubtitle') }}
           </span>
           <h2 class="text-white text-3xl sm:text-4xl md:text-5xl font-black uppercase tracking-tight">
-            Parlor LARP : Words as Weapons
+            {{ t('whatIsLarp.parlorTitle') }}
           </h2>
           <p class="text-text-muted text-sm sm:text-base mt-4 font-light">
-            Vampire live action is fundamentally different from boffer or battle games. It is parlor roleplay centered on high court diplomacy, subtle intrigue, and psychological tension.
+            {{ t('whatIsLarp.parlorDesc') }}
           </p>
         </div>
 
@@ -199,10 +202,10 @@ const scrollToSection = (id) => {
               <div class="absolute bottom-6 left-6 right-6 p-5 bg-[#181112]/95 backdrop-blur-md rounded-xl border border-[#39282a]">
                 <div class="flex items-center gap-2 text-primary text-xs font-bold uppercase tracking-widest mb-1">
                   <i class="fa-solid fa-landmark text-xs"></i>
-                  <span>The Athens Elysium</span>
+                  <span>{{ t('whatIsLarp.elysiumTitle') }}</span>
                 </div>
                 <p class="text-xs text-gray-300 font-light leading-relaxed">
-                  Neutral ground where ancient predators gather under sacred peace to negotiate power.
+                  {{ t('whatIsLarp.elysiumDesc') }}
                 </p>
               </div>
             </div>
@@ -211,19 +214,19 @@ const scrollToSection = (id) => {
           <div class="lg:col-span-7 space-y-6">
             <div class="flex items-center gap-2 text-primary text-xs font-bold uppercase tracking-[0.2em] bg-primary/10 px-3 py-1 rounded border border-primary/20 w-fit">
               <i class="fa-solid fa-crown text-xs"></i>
-              The Sanctuary of Elysium
+              {{ t('whatIsLarp.paxTag') }}
             </div>
 
             <h3 class="text-3xl sm:text-4xl font-black uppercase text-white leading-tight">
-              The Pax Vampirica : Courtly Peace and Social Conflict
+              {{ t('whatIsLarp.paxTitle') }}
             </h3>
 
             <p class="text-gray-300 text-base sm:text-lg leading-relaxed font-light">
-              In Vampire: The Masquerade, players congregate in a formal salon called <strong>Elysium</strong>. Declared neutral ground by the sovereign Prince of Athens, Elysium is protected by ancient law: open violence is strictly prohibited under penalty of final death.
+              {{ t('whatIsLarp.paxP1') }}
             </p>
 
             <p class="text-gray-400 text-sm leading-relaxed font-light">
-              Because physical blades are banned, words become the ultimate weapons. Social status, rumors circulated by Harpies, binding boons, and formal etiquette take center stage. You must sit with your worst rivals, trade pleasantries, and smile while orchestrating their downfall behind velvet curtains.
+              {{ t('whatIsLarp.paxP2') }}
             </p>
 
             <div class="space-y-3 pt-2">
@@ -232,9 +235,9 @@ const scrollToSection = (id) => {
                   <i class="fa-solid fa-handshake-simple"></i>
                 </span>
                 <div>
-                  <h4 class="text-base font-bold uppercase text-white mb-1">The Economy of Boons</h4>
+                  <h4 class="text-base font-bold uppercase text-white mb-1">{{ t('whatIsLarp.boonsTitle') }}</h4>
                   <p class="text-xs text-gray-400 font-light leading-relaxed">
-                    Kindred society functions on favors. Trivial, minor, major, and life boons are the currency of unlife, traded between players and honored across generations.
+                    {{ t('whatIsLarp.boonsDesc') }}
                   </p>
                 </div>
               </div>
@@ -244,9 +247,9 @@ const scrollToSection = (id) => {
                   <i class="fa-solid fa-masks-theater"></i>
                 </span>
                 <div>
-                  <h4 class="text-base font-bold uppercase text-white mb-1">Court Hierarchy and Titles</h4>
+                  <h4 class="text-base font-bold uppercase text-white mb-1">{{ t('whatIsLarp.courtHierarchyTitle') }}</h4>
                   <p class="text-xs text-gray-400 font-light leading-relaxed">
-                    The Prince commands the city, the Keeper preserves Elysium peace, the Sheriff investigates violations, and Harpies manage prestige and gossip.
+                    {{ t('whatIsLarp.courtHierarchyDesc') }}
                   </p>
                 </div>
               </div>
@@ -266,10 +269,10 @@ const scrollToSection = (id) => {
               <div class="absolute inset-0 bg-gradient-to-t from-[#181112] via-transparent to-transparent lg:hidden"></div>
               <div class="absolute bottom-4 left-4 right-4 p-4 bg-[#181112]/95 backdrop-blur-md rounded-xl border border-[#39282a] lg:hidden">
                 <span class="text-xs font-bold uppercase tracking-widest text-primary block mb-1">
-                  Living Courtroom Drama
+                  {{ t('whatIsLarp.inquestTag') }}
                 </span>
                 <p class="text-xs text-gray-300 font-light">
-                  Formal judicial proceedings in Elysium where players present evidence and petition the Prince.
+                  {{ t('whatIsLarp.inquestDesc') }}
                 </p>
               </div>
             </div>
@@ -277,24 +280,24 @@ const scrollToSection = (id) => {
             <div class="lg:col-span-5 p-8 sm:p-12 space-y-6">
               <div class="flex items-center gap-2 text-primary text-xs font-bold uppercase tracking-[0.2em] bg-primary/10 px-3 py-1 rounded border border-primary/20 w-fit">
                 <i class="fa-solid fa-gavel text-xs"></i>
-                Living Judicial Drama
+                {{ t('whatIsLarp.inquestTag') }}
               </div>
 
               <h3 class="text-2xl sm:text-3xl font-black uppercase text-white leading-tight">
-                Trials, Inquests & High Stakes Politics
+                {{ t('whatIsLarp.inquestTitle') }}
               </h3>
 
               <p class="text-gray-300 text-sm sm:text-base font-light leading-relaxed">
-                When the Masquerade is breached or a vampire is found destroyed, the court convenes. Players present evidence, argue legal precedents, question suspects, and petition the Prince for justice.
+                {{ t('whatIsLarp.inquestDesc') }}
               </p>
 
               <div class="space-y-3 pt-2">
                 <div class="p-4 rounded-xl bg-[#181112] border border-[#39282a] space-y-1">
                   <span class="text-xs font-bold uppercase tracking-widest text-primary block">
-                    Real Consequences
+                    {{ t('whatIsLarp.consequencesTitle') }}
                   </span>
                   <p class="text-xs text-gray-400 font-light leading-relaxed">
-                    Court trials result in domain confiscations, public humiliation, or the declaration of a Blood Hunt that reshapes the chronicle.
+                    {{ t('whatIsLarp.consequencesDesc') }}
                   </p>
                 </div>
               </div>
@@ -309,13 +312,13 @@ const scrollToSection = (id) => {
       <div class="max-w-[1400px] mx-auto space-y-16">
         <div class="text-center max-w-3xl mx-auto">
           <span class="text-primary text-xs font-bold uppercase tracking-[0.2em] block mb-2">
-            The Immersion
+            {{ t('whatIsLarp.tactileSectionBadge') }}
           </span>
           <h2 class="text-white text-3xl sm:text-4xl md:text-5xl font-black uppercase tracking-tight">
-            Tactile Props & Urban Investigation
+            {{ t('whatIsLarp.tactileSectionTitle') }}
           </h2>
           <p class="text-text-muted text-sm sm:text-base mt-4 font-light">
-            In Athens Through Time, props are tangible objects. Players examine real letters, decode ciphers, and collaborate in private coterie huddles.
+            {{ t('whatIsLarp.tactileSectionDesc') }}
           </p>
         </div>
 
@@ -329,15 +332,15 @@ const scrollToSection = (id) => {
               />
               <div class="absolute inset-0 bg-gradient-to-t from-surface-dark via-transparent to-transparent"></div>
               <div class="absolute top-4 left-4 bg-primary/90 text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded">
-                Physical Letters
+                {{ t('whatIsLarp.prop1Badge') }}
               </div>
             </div>
             <div class="p-6 space-y-2">
               <h4 class="text-lg font-bold uppercase text-white">
-                Sealed In Character Missives
+                {{ t('whatIsLarp.prop1Title') }}
               </h4>
               <p class="text-xs text-gray-400 font-light leading-relaxed">
-                Diplomatic proposals and secret pacts are delivered on real parchment sealed with wax, protecting correspondence from mortal electronic eavesdropping.
+                {{ t('whatIsLarp.prop1Desc') }}
               </p>
             </div>
           </div>
@@ -351,15 +354,15 @@ const scrollToSection = (id) => {
               />
               <div class="absolute inset-0 bg-gradient-to-t from-surface-dark via-transparent to-transparent"></div>
               <div class="absolute top-4 left-4 bg-[#8a0b16] text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded">
-                Coterie Strategy
+                {{ t('whatIsLarp.prop2Badge') }}
               </div>
             </div>
             <div class="p-6 space-y-2">
               <h4 class="text-lg font-bold uppercase text-white">
-                Dossiers & Clue Solving
+                {{ t('whatIsLarp.prop2Title') }}
               </h4>
               <p class="text-xs text-gray-400 font-light leading-relaxed">
-                Players gather around planning tables to examine police dossiers, decode archaic Greek ciphers, and map out rival domains across Athens.
+                {{ t('whatIsLarp.prop2Desc') }}
               </p>
             </div>
           </div>
@@ -373,15 +376,15 @@ const scrollToSection = (id) => {
               />
               <div class="absolute inset-0 bg-gradient-to-t from-surface-dark via-transparent to-transparent"></div>
               <div class="absolute top-4 left-4 bg-[#631019] text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded">
-                Ancient Lore
+                {{ t('whatIsLarp.prop3Badge') }}
               </div>
             </div>
             <div class="p-6 space-y-2">
               <h4 class="text-lg font-bold uppercase text-white">
-                Grimoires & Ancestral Records
+                {{ t('whatIsLarp.prop3Title') }}
               </h4>
               <p class="text-xs text-gray-400 font-light leading-relaxed">
-                Historical manuscripts and handwritten archives allow characters to uncover secrets buried deep in Greek history and forgotten occult cults.
+                {{ t('whatIsLarp.prop3Desc') }}
               </p>
             </div>
           </div>
@@ -394,53 +397,53 @@ const scrollToSection = (id) => {
       <div class="max-w-[1400px] mx-auto space-y-16">
         <div class="text-center max-w-3xl mx-auto">
           <span class="text-primary text-xs font-bold uppercase tracking-[0.2em] block mb-2">
-            The Experience
+            {{ t('whatIsLarp.phasesBadge') }}
           </span>
           <h2 class="text-white text-3xl sm:text-4xl md:text-5xl font-black uppercase tracking-tight">
-            What to Expect on Game Night
+            {{ t('whatIsLarp.phasesTitle') }}
           </h2>
           <p class="text-text-muted text-sm sm:text-base mt-4 font-light">
-            Each Athens Through Time gathering follows a clear, supportive rhythm designed for veteran roleplayers and newcomers alike.
+            {{ t('whatIsLarp.phasesDesc') }}
           </p>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div class="bg-surface-dark p-8 rounded-2xl border border-[#39282a] space-y-4 flex flex-col justify-between hover:border-primary/50 transition-all">
             <div class="space-y-3">
-              <span class="text-primary font-bold text-xs uppercase tracking-widest block">Phase 01</span>
-              <h4 class="text-xl font-bold uppercase text-white">Arrival & Briefing</h4>
+              <span class="text-primary font-bold text-xs uppercase tracking-widest block">{{ t('whatIsLarp.phase1Num') }}</span>
+              <h4 class="text-xl font-bold uppercase text-white">{{ t('whatIsLarp.phase1Title') }}</h4>
               <p class="text-xs text-gray-400 font-light leading-relaxed">
-                Arrive at the venue, change into your character attire, review your sheet, and receive opening directions from the Storytellers before entering the domain.
+                {{ t('whatIsLarp.phase1Desc') }}
               </p>
             </div>
             <div class="pt-4 border-t border-[#39282a] text-[11px] font-bold uppercase tracking-widest text-primary">
-              Pre Game Preparation
+              {{ t('whatIsLarp.phase1Tag') }}
             </div>
           </div>
 
           <div class="bg-surface-dark p-8 rounded-2xl border border-primary/40 space-y-4 flex flex-col justify-between shadow-[0_0_30px_rgba(212,17,33,0.15)] hover:border-primary transition-all">
             <div class="space-y-3">
-              <span class="text-primary font-bold text-xs uppercase tracking-widest block">Phase 02</span>
-              <h4 class="text-xl font-bold uppercase text-white">Inside the Elysium</h4>
+              <span class="text-primary font-bold text-xs uppercase tracking-widest block">{{ t('whatIsLarp.phase2Num') }}</span>
+              <h4 class="text-xl font-bold uppercase text-white">{{ t('whatIsLarp.phase2Title') }}</h4>
               <p class="text-xs text-gray-300 font-light leading-relaxed">
-                The heart of the gathering. Hours of living roleplay filled with private conversations, calculated eavesdropping, court politics, boon trades, and unexpected crises unfolding across the salon.
+                {{ t('whatIsLarp.phase2Desc') }}
               </p>
             </div>
             <div class="pt-4 border-t border-[#39282a] text-[11px] font-bold uppercase tracking-widest text-primary">
-              Living Courtroom Politics
+              {{ t('whatIsLarp.phase2Tag') }}
             </div>
           </div>
 
           <div class="bg-surface-dark p-8 rounded-2xl border border-[#39282a] space-y-4 flex flex-col justify-between hover:border-primary/50 transition-all">
             <div class="space-y-3">
-              <span class="text-primary font-bold text-xs uppercase tracking-widest block">Phase 03</span>
-              <h4 class="text-lg font-bold uppercase text-white">Game Off & Debrief</h4>
+              <span class="text-primary font-bold text-xs uppercase tracking-widest block">{{ t('whatIsLarp.phase3Num') }}</span>
+              <h4 class="text-lg font-bold uppercase text-white">{{ t('whatIsLarp.phase3Title') }}</h4>
               <p class="text-xs text-gray-400 font-light leading-relaxed">
-                Personas are shed, the community debriefs together, and players celebrate plot developments and memorable scenes out of character.
+                {{ t('whatIsLarp.phase3Desc') }}
               </p>
             </div>
             <div class="pt-4 border-t border-[#39282a] text-[11px] font-bold uppercase tracking-widest text-primary">
-              Community Connection
+              {{ t('whatIsLarp.phase3Tag') }}
             </div>
           </div>
         </div>
@@ -452,13 +455,13 @@ const scrollToSection = (id) => {
       <div class="max-w-[1400px] mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
         <div class="space-y-2 text-center md:text-left">
           <span class="text-primary text-xs font-bold uppercase tracking-[0.2em] block">
-            Next Lore Chapter
+            {{ t('whatIsLarp.ctaBadge') }}
           </span>
           <h3 class="text-2xl sm:text-3xl font-black uppercase text-white">
-            What is Vampire: The Masquerade?
+            {{ t('whatIsLarp.ctaTitle') }}
           </h3>
           <p class="text-sm text-gray-300 font-light max-w-2xl">
-            Explore the World of Darkness setting, the Beast, the Hunger, the Six Traditions, and the Camarilla court of Athens.
+            {{ t('whatIsLarp.ctaDesc') }}
           </p>
         </div>
 
@@ -466,7 +469,7 @@ const scrollToSection = (id) => {
           to="/what-is-vampire"
           class="shrink-0 flex items-center gap-3 px-8 py-4 bg-primary hover:bg-primary-dark transition-all rounded-lg text-white text-xs font-bold uppercase tracking-widest shadow-[0_0_20px_rgba(212,17,33,0.4)]"
         >
-          <span>Explore Vampire Lore</span>
+          <span>{{ t('whatIsLarp.ctaBtn') }}</span>
           <i class="fa-solid fa-arrow-right text-xs"></i>
         </RouterLink>
       </div>
