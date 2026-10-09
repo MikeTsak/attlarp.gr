@@ -1,8 +1,29 @@
-# Athens Through Time - Vampire: The Masquerade LARP Website
+<div align="center">
+  <img src="https://img.shields.io/badge/Athens%20Through%20Time-Website-darkred?style=for-the-badge&logo=vue.js" alt="ATT LARP Website" />
+  <h1>🏛️ Athens Through Time — LARP Website 🏛️</h1>
+  <p><strong>Current Version: 1.0.0</strong></p>
 
-A Vue.js website for the Athens Through Time Vampire: The Masquerade V5 LARP chronicle, serving as the digital portal for players to explore the lore, setting, and gallery.
+  <p>
+    <img src="https://img.shields.io/badge/Vue.js-35495E?style=for-the-badge&logo=vuedotjs&logoColor=4FC08D" alt="Vue.js" />
+    <img src="https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white" alt="Vite" />
+    <img src="https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge" alt="License" />
+  </p>
+</div>
 
-## Features
+## 📖 Overview
+
+A sleek, responsive Vue.js application that serves as the digital portal for the **Athens Through Time** Vampire: The Masquerade V5 LARP chronicle.
+
+This platform introduces players to the rich lore, the dark setting, and features an extensive gallery of events and characters.
+
+## ✨ Latest Features
+- **Modern Vue Architecture**: Highly optimized rendering with the latest Vue engine and Vite.
+- **Gothic-Noir Aesthetic**: A deep, immersive dark theme that captures the essence of the World of Darkness.
+- **Dynamic Content & Gallery**: Seamless navigation and image handling optimized for fast loading.
+- **Responsive Layout**: Perfect viewing experience across desktop, tablet, and mobile devices.
+- **i18n & Translations**: Support for multiple languages to cater to a diverse player base.
+
+## ⚙️ Core Features
 - Immersive gothic-noir aesthetic tailored to the World of Darkness setting.
 - Single Page Application (SPA) built with Vue 3 (Composition API) for smooth navigation without page reloads.
 - Responsive, dark-mode-first design using Tailwind CSS.
